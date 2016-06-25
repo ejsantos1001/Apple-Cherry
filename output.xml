@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160623 19:11:26.984" generator="Robot 3.0 (Python 2.7.11 on win32)">
+<suite source="C:\Users\jose\Documents\techlab\robot\webdemo\login_tests\gherkin_login.robot" id="s1" name="Gherkin Login">
+<test id="s1-t1" name="Api Test">
+<kw name="Get password grant-type token" library="resource">
+<kw name="Create Http Context" library="HttpLibrary.HTTP">
+<doc>Sets the HTTP host to use for future requests. You must call this</doc>
+<arguments>
+<arg>stgapi.angloinfo.com</arg>
+<arg>https</arg>
+</arguments>
+<msg timestamp="20160623 19:11:27.426" level="INFO">Host for next HTTP request set to 'stgapi.angloinfo.com'</msg>
+<msg timestamp="20160623 19:11:27.426" level="INFO">Scheme for next HTTP request set to 'https'</msg>
+<status status="PASS" endtime="20160623 19:11:27.814" starttime="20160623 19:11:27.426"></status>
+</kw>
+<kw name="Set Request Header" library="HttpLibrary.HTTP">
+<doc>Sets a request header for the next request.</doc>
+<arguments>
+<arg>Content-Type</arg>
+<arg>application/x-www-form-urlencoded</arg>
+</arguments>
+<msg timestamp="20160623 19:11:27.814" level="INFO">Set request header "Content-Type" to "application/x-www-form-urlencoded"</msg>
+<status status="PASS" endtime="20160623 19:11:27.814" starttime="20160623 19:11:27.814"></status>
+</kw>
+<kw name="Set Request Body" library="HttpLibrary.HTTP">
+<doc>Set the request body for the next HTTP request.</doc>
+<arguments>
+<arg>grant_type=password&amp;client_id=1&amp;client_secret=coapp&amp;username=ainfo1001%2Bstg101%40gmail.com&amp;password=Anglo123</arg>
+</arguments>
+<msg timestamp="20160623 19:11:27.815" level="INFO">Request body set to "grant_type=password&amp;client_id=1&amp;client_secret=coapp&amp;username=ainfo1001%2Bstg101%40gmail.com&amp;password=Anglo123".</msg>
+<status status="PASS" endtime="20160623 19:11:27.815" starttime="20160623 19:11:27.814"></status>
+</kw>
+<kw name="POST" library="HttpLibrary.HTTP">
+<doc>Issues a HTTP POST request.</doc>
+<arguments>
+<arg>/oauth/access_token</arg>
+</arguments>
+<status status="PASS" endtime="20160623 19:11:32.288" starttime="20160623 19:11:27.815"></status>
+</kw>
+<kw name="Get Response Body" library="HttpLibrary.HTTP">
+<doc>Get the response body.</doc>
+<assign>
+<var>${RESPONSEBODY}</var>
+</assign>
+<msg timestamp="20160623 19:11:32.290" level="INFO">${RESPONSEBODY} = {"access_token":"0bsNbpnvXj40Z9XJmtloZtVoQm9leqLngYvQ48jV","token_type":"bearer","expires":1467285092,"expires_in":604800,"refresh_token":"Gw8jEZzNTLVqm2PdftiTSk2tgAShMOw9DkVMY3aK"}</msg>
+<status status="PASS" endtime="20160623 19:11:32.290" starttime="20160623 19:11:32.289"></status>
+</kw>
+<kw name="Get Json Value" library="HttpLibrary.HTTP">
+<doc>Get the target node of the JSON document `json_string` specified by `json_pointer`.</doc>
+<arguments>
+<arg>${RESPONSEBODY}</arg>
+<arg>/access_token</arg>
+</arguments>
+<assign>
+<var>${ACCESSTOKEN}</var>
+</assign>
+<msg timestamp="20160623 19:11:32.292" level="INFO">${ACCESSTOKEN} = "0bsNbpnvXj40Z9XJmtloZtVoQm9leqLngYvQ48jV"</msg>
+<status status="PASS" endtime="20160623 19:11:32.292" starttime="20160623 19:11:32.291"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${ACCESSTOKEN}</arg>
+</arguments>
+<status status="PASS" endtime="20160623 19:11:32.298" starttime="20160623 19:11:32.293"></status>
+</kw>
+<status status="PASS" endtime="20160623 19:11:32.299" starttime="20160623 19:11:27.425"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160623 19:11:32.302" starttime="20160623 19:11:32.301"></status>
+</kw>
+<status status="PASS" endtime="20160623 19:11:32.303" critical="yes" starttime="20160623 19:11:27.423"></status>
+</test>
+<doc>A test suite with a single Gherkin style test.
+
+This test is functionally identical to the example in
+valid_login.robot file.</doc>
+<status status="PASS" endtime="20160623 19:11:32.315" starttime="20160623 19:11:26.987"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Gherkin Login" pass="1">Gherkin Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
