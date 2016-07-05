@@ -1,7 +1,0 @@
-ROUTES:
-     SignIn:   "https://stg.angloinfo.com/member/signin"
-
-USERS:
-     Valid User:
-         username:  "ainfo1001+stg101@gmail.com"
-         password:  "Anglo123"
