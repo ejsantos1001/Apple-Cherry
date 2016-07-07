@@ -9,14 +9,20 @@ Test Teardown     Close Browser
 
 
 
-Valid Login
-     A valid user logs in
+#Valid Login
+#    A valid user logs in
 
 
 Forgot password email test
     Given a user is in the "reset" page
     When a valid credential is reset
     Then a reset email is recieved
+
+Posting a discussion
+	Given a user is logged in
+	And a user is in the "discussions submit" page
+
+
 
 
 #Create "free" event directory listing via api

@@ -21,6 +21,11 @@ ${RESPONSEBODY}
 *** Keywords ***
 
 # Phrases
+
+A user is logged in
+    # equivalent phrase
+    A valid user logs in
+
 A valid user logs in
     Open Browser    &{RESOURCE}[signin]    ${BROWSER}
     Maximize Browser Window
@@ -38,7 +43,7 @@ A user is in the "${pagename}" page
     Set Selenium Speed    ${DELAY}
 
 A valid credential is reset
-    Input text   formEmail    &{VALIDUSER2}[username]
+    Input text   formEmail    &{USERFORRESET}[username]
     Click Button    xpath=${send_reset_link_xpath}
     Wait until element is visible    xpath=${reset_link_sent_confirmation_box_xpath}   20
 
