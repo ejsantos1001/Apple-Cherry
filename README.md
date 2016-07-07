@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Anti Regression system  using  robot-framework
+test logic storage and repetition framework using robot framework. 
 
 ## Motiviation
 
@@ -13,5 +13,7 @@ After evaluating different tools, it is found that of robot-framework plus pytho
 
   1. Install python 2
   2. Install pip
-  3. 
+  3. Install robot framework
+  4. Install libraries
+  5. Install browser drivers
 
