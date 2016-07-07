@@ -42,6 +42,9 @@ A user is in the "${pagename}" page
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
 
+A user opens the "${pagename}" page
+    Go to  &{RESOURCE}[${pagename}]
+
 A valid credential is reset
     Input text   formEmail    &{USERFORRESET}[username]
     Click Button    xpath=${send_reset_link_xpath}
@@ -53,7 +56,14 @@ A reset email is recieved
     @{RESET LINKS}=   get links from email    ${LATEST}
     Mark Email as Read    ${LATEST}
 
-
+A user posts a topic
+    Select from list by index    parentCategory    2
+    Click Button   xpath=${continue_open_form_button_xpath}
+    Wait until element is visible   xpath=${topic_field_xpath}
+    Input text   xpath=${topic_field_xpath}    "placeholdertext"
+    Wait until element is visible    xpath=${content_textbox_xpath }
+    Input text   xpath=${content_textbox_xpath }   "placeholdertext"
+    Click Button   xpath=${continue_submit_button_xpath}
 
 
 

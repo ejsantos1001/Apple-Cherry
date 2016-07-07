@@ -1,17 +1,15 @@
 *** Settings ***
-Documentation     A test suite with Gherkin style tests.
-...               This test is functionally identical to the example in
-...               valid_login.robot file.
+Documentation     test suite with a mix of gherkin style tests and simple phrases
 Resource          resource.robot
 Test Teardown     Close Browser
+
 
 *** Test Cases ***
 
 
 
-#Valid Login
-#    A valid user logs in
-
+Valid Login
+    A valid user logs in
 
 Forgot password email test
     Given a user is in the "reset" page
@@ -19,10 +17,9 @@ Forgot password email test
     Then a reset email is recieved
 
 Posting a discussion
-	Given a user is logged in
-	And a user is in the "discussions submit" page
-
-
+    Given a user is logged in
+    And a user opens the "discussions submit" page
+    When a user posts a topic
 
 
 #Create "free" event directory listing via api
