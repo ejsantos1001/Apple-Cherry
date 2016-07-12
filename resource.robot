@@ -6,7 +6,6 @@ Documentation     A resource file with reusable keywords and variables.
 Variables         stgconfigs.py
 Variables         elementlocations.py
 Library           Selenium2Library
-Library           FakerLibrary
 Library           ExtendedRequestsLibrary
 Library           HttpLibrary.HTTP
 Library           ImapLibrary
