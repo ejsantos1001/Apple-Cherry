@@ -19,11 +19,9 @@ ${ERROR URL}      http://${SERVER}/error.html
 ${RESPONSEBODY}
 
 *** Keywords ***
-
-# Phrases
+# Key Phrases
 
 A user is logged in
-    # equivalent phrase
     A valid user logs in
 
 A valid user logs in
@@ -57,13 +55,14 @@ A reset email is recieved
     Mark Email as Read    ${LATEST}
 
 A user posts a topic
-    Select from list by index    parentCategory    2
-    Click Button   xpath=${continue_open_form_button_xpath}
-    Wait until element is visible   xpath=${topic_field_xpath}
-    Input text   xpath=${topic_field_xpath}    "placeholdertext"
-    Wait until element is visible    xpath=${content_textbox_xpath }
-    Input text   xpath=${content_textbox_xpath }   "placeholdertext"
-    Click Button   xpath=${continue_submit_button_xpath}
+    Select from list by index        id=${category_dropdown}    2
+    Click Button                     xpath=${first_continue_button}
+    Wait until element is enabled    xpath=${discussion_topic_title}
+    Wait until element is enabled    xpath=${summernote_link_button}
+    Wait until element is enabled    xpath=${discussion_topic_editor}   10
+    Input text                       xpath=${discussion_topic_title}    "placeholdertext"
+    Wait until element is visible    xpath=${second_continue_button}
+    Click Button                     xpath=${second_continue_button}
 
 
 
