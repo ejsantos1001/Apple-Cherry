@@ -60,6 +60,7 @@ A user posts a topic
     Wait until element is enabled    xpath=${summernote_link_button}
     Wait until element is enabled    xpath=${discussion_topic_editor}   10
     Input text                       xpath=${discussion_topic_title}    "placeholdertext"
+    Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='text'
     Wait until element is visible    xpath=${second_continue_button}
     Click Button                     xpath=${second_continue_button}
 

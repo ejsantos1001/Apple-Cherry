@@ -4,7 +4,7 @@ DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
 	    'password': 'Anglo123' , 
 	    'default_loc': 'zurich',
-	    'displayname': 'ainfotest'
+	    'displayname': 'staging test account'
 }
 
 DICT__userforreset = {

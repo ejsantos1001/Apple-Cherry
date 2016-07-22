@@ -19,6 +19,7 @@ first_continue_button    = '//*[@id="stateCategorySelect"]/form/div[2]/div/butto
 
 second_continue_button   = '//div[3]/div/button'
 
+discussion_text_editor = '#stateForumTopic > form > div:nth-child(2) > div > div.note-editor.note-frame.panel.panel-default > div.note-editing-area > div.note-editable.panel-body'
 
 summernote__input_element = '//*[@id="stateForumTopic"]/form/div[2]/div/div[1]/div[3]/div[2]/p'
 
