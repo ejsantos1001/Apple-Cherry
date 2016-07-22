@@ -3,7 +3,7 @@ baseurl = 'https://stg.angloinfo.com'
 DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
 	    'password': 'Anglo123' , 
-	    'default_loc': 'zurich',
+	    'default_loc': 'riviera',
 	    'displayname': 'staging test account'
 }
 

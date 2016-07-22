@@ -20,6 +20,7 @@ Posting a discussion
     Given a user is logged in
     And a user opens the "discussions submit" page
     When a user posts a topic
+    A success message appears
 
 
 

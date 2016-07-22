@@ -54,16 +54,18 @@ A reset email is recieved
     Mark Email as Read    ${LATEST}
 
 A user posts a topic
-    Select from list by index        id=${category_dropdown}    2
+    Select from list by index        id=${category_dropdown}    1
     Click Button                     xpath=${first_continue_button}
     Wait until element is enabled    xpath=${discussion_topic_title}
     Wait until element is enabled    xpath=${summernote_link_button}
     Wait until element is enabled    xpath=${discussion_topic_editor}   10
-    Input text                       xpath=${discussion_topic_title}    "placeholdertext"
+    Input text                       xpath=${discussion_topic_title}    placeholdertext
     Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='text'
     Wait until element is visible    xpath=${second_continue_button}
     Click Button                     xpath=${second_continue_button}
-
+A success message appears
+    Wait until element is visible    css=${success_text}
+    Element should contain           css=${success_text}    Success
 
 
 

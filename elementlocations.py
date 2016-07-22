@@ -4,8 +4,8 @@ display_name_location = '//*[@id="profile-img-container"]/h1/span[1]'
 
 #resetpage
 send_reset_link_xpath 					= '//*[@id="reset-form"]/form/button'
-reset_link_sent_confirmation_box_xpath  = '//*[@id="reset"]/div/div[1]/p'
 
+reset_link_sent_confirmation_box_xpath  = '//*[@id="reset"]/div/div[1]/p'
 
 #contentsubmission
 
@@ -24,4 +24,6 @@ discussion_text_editor = '#stateForumTopic > form > div:nth-child(2) > div > div
 summernote__input_element = '//*[@id="stateForumTopic"]/form/div[2]/div/div[1]/div[3]/div[2]/p'
 
 discussion_topic_editor    = '//*[@id="stateForumTopic"]/form/div[2]'
+
+success_text ='#stateSuccess > table > tbody > tr > td:nth-child(2) > span'
 
