@@ -17,9 +17,9 @@ After evaluating different tools, it is found that  robot-framework plus python 
   4. Install libraries
   5. Install browser drivers
 
-## Description
+## Files
 
-- aitestsuite      - contains testcases to be exectued
-- resource.robot    - contains keywords abstractions and libraries
-- stgconfig.py     - python module, used to supply configuration variables for staging
+- aitestsuite         - contains testcases using keywords
+- resource.robot      - contains keyword abstractions and libraries
+- stgconfig.py        - python module, used to supply data variables and configuration variables
 - elementlocations.py -  python module, used to supply  element location data
