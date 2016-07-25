@@ -19,7 +19,7 @@ After evaluating different tools, it is found that  robot-framework plus python 
 
 ## Description
 
-aitestsuite      - contains testcases to be exectued
-resource.robot    - contains keywords abstractions and libraries
-stgconfig.py     - python module, used to supply configuration variables for staging
-elementlocations.py -  python module, used to supply  element location data
+- aitestsuite      - contains testcases to be exectued
+- resource.robot    - contains keywords abstractions and libraries
+- stgconfig.py     - python module, used to supply configuration variables for staging
+- elementlocations.py -  python module, used to supply  element location data
