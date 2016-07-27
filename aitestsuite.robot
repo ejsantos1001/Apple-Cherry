@@ -20,7 +20,11 @@ Posting a discussion
     Given a user is logged in
     And a user opens the "discussions submit" page
     When a user posts a topic
-    A success message appears
+    And a success message appears
+
+Creating a discussion via cms
+    Given a user is logged in the cms
+    When a user creates a directory
 
 
 

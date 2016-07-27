@@ -3,12 +3,13 @@ Documentation     A resource file with reusable keywords and variables.
 ...               The system specific keywords created here form our own
 ...               domain specific language. They utilize keywords provided
 ...               by the imported Libraries.
-Variables         stgconfigs.py
+Variables         data.py
 Variables         elementlocations.py
 Library           Selenium2Library
 Library           ExtendedRequestsLibrary
 Library           HttpLibrary.HTTP
 Library           ImapLibrary
+Library           FakerLibrary
 
 *** Variables ***
 ${SERVER}         stg.angloinfo.com
@@ -33,6 +34,45 @@ A valid user logs in
     Click Button    xpath=//*[@id="form-signin"]/button
     Wait Until Page Contains Element    xpath=${display_name_location}   20
     Element Text Should Be    xpath=${display_name_location}    &{VALIDUSER}[displayname]
+
+A user is logged in the cms
+    A user logs in the cms
+
+A user logs in the cms
+    Open Browser    &{RESOURCE}[cmssignin]    ${BROWSER}
+    Maximize Browser Window
+    Input Text    email   &{CMSUSER}[username]
+    Input Text    password   &{CMSuser}[password]
+    Click Button   css=${login_button}
+
+A user creates a directory
+    Click Link    link=${region_dropdown}
+    Click Link    link=French Riviera
+    Wait until spinner is finished for "60" seconds
+    Click Link    xpath=${content_dropdown}
+    Click Link    css=${content_dropdown_directory}
+    Wait until spinner is finished for "60" seconds
+    Wait until page contains element    xpath=${level1_category}   10
+    Click element   xpath=${level1_category}
+    Wait until element is visible   xpath=${level2_category}   10
+    Click element   xpath=${level2_category}
+    Wait until spinner is finished for "60" seconds
+    Wait until page contains element   xpath=${add_listing_button}
+    Click element   xpath=${add_listing_button}
+    Wait until page contains element   id=${new_listing_name}   10
+    Wait until element is visible   id=${new_listing_name}   10
+    Input Text   id=${new_listing_name}   &{DIRECTORYLISTING}[name]
+    Execute javascript   document.querySelector('${content_box1}').innerText='&{DIRECTORYLISTING}[content1]'
+    Execute javascript   document.querySelector('${content_box2}').innterText='&{DIRECTORYLISTING}[content2]'
+    Click button    css=${slug_button}
+    Click button    css=${save_button}
+
+
+
+Wait until spinner is finished for "${time}" seconds
+    Wait until element is visible            css=body > div.blockUI.blockOverlay    ${time}
+    Wait until element is not visible        css=body > div.blockUI.blockOverlay    ${time}
+
 
 A user is in the "${pagename}" page
     Open Browser    &{RESOURCE}[${pagename}]    ${BROWSER}
@@ -66,8 +106,6 @@ A user posts a topic
 A success message appears
     Wait until element is visible    css=${success_text}
     Element should contain           css=${success_text}    Success
-
-
 
 
 
