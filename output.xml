@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160727 15:15:16.018" generator="Robot 3.0 (Python 2.7.10 on darwin)">
+<robot generated="20160818 18:10:37.618" generator="Robot 3.0 (Python 2.7.10 on darwin)">
 <suite source="/Users/ejsantos/Documents/robot/Apple-Cherry/aitestsuite.robot" id="s1" name="Aitestsuite">
-<test id="s1-t1" name="Creating a discussion via cms">
-<kw name="Given a user is logged in the cms" library="resource">
-<kw name="A user logs in the cms" library="resource">
+<test id="s1-t1" name="Regional Location configs did not change">
+<kw name="Given a user logs in the cms" library="resource">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>&amp;{RESOURCE}[cmssignin]</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20160727 15:15:17.961" level="INFO">Opening browser 'Chrome' to base url 'https://stgcms.angloinfo.com'</msg>
-<status status="PASS" endtime="20160727 15:15:27.003" starttime="20160727 15:15:17.961"></status>
+<msg timestamp="20160818 18:10:42.578" level="INFO">Opening browser 'chrome' to base url 'https://stgcms.angloinfo.com'</msg>
+<status status="PASS" endtime="20160818 18:10:55.055" starttime="20160818 18:10:42.577"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20160727 15:15:27.530" starttime="20160727 15:15:27.005"></status>
+<status status="PASS" endtime="20160818 18:10:55.562" starttime="20160818 18:10:55.055"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -23,8 +22,8 @@
 <arg>email</arg>
 <arg>&amp;{CMSUSER}[username]</arg>
 </arguments>
-<msg timestamp="20160727 15:15:27.531" level="INFO">Typing text 'dev@angloinfo.com' into text field 'email'</msg>
-<status status="PASS" endtime="20160727 15:15:27.780" starttime="20160727 15:15:27.530"></status>
+<msg timestamp="20160818 18:10:55.563" level="INFO">Typing text 'dev@angloinfo.com' into text field 'email'</msg>
+<status status="PASS" endtime="20160818 18:10:55.855" starttime="20160818 18:10:55.562"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -32,227 +31,46 @@
 <arg>password</arg>
 <arg>&amp;{CMSuser}[password]</arg>
 </arguments>
-<msg timestamp="20160727 15:15:27.781" level="INFO">Typing text 'penguin' into text field 'password'</msg>
-<status status="PASS" endtime="20160727 15:15:27.908" starttime="20160727 15:15:27.780"></status>
+<msg timestamp="20160818 18:10:55.856" level="INFO">Typing text 'penguin' into text field 'password'</msg>
+<status status="PASS" endtime="20160818 18:10:55.967" starttime="20160818 18:10:55.856"></status>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>css=${login_button}</arg>
 </arguments>
-<msg timestamp="20160727 15:15:27.909" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
-<status status="PASS" endtime="20160727 15:15:32.349" starttime="20160727 15:15:27.908"></status>
+<msg timestamp="20160818 18:10:55.968" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
+<status status="PASS" endtime="20160818 18:10:59.567" starttime="20160818 18:10:55.968"></status>
 </kw>
-<status status="PASS" endtime="20160727 15:15:32.350" starttime="20160727 15:15:17.960"></status>
+<status status="PASS" endtime="20160818 18:10:59.568" starttime="20160818 18:10:42.577"></status>
 </kw>
-<status status="PASS" endtime="20160727 15:15:32.350" starttime="20160727 15:15:17.960"></status>
-</kw>
-<kw name="When a user creates a directory" library="resource">
+<kw name="Then a user opens a regional location config page" library="resource">
 <kw name="Click Link" library="Selenium2Library">
 <doc>Clicks a link identified by locator.</doc>
 <arguments>
-<arg>link=${region_dropdown}</arg>
+<arg>xpath=${configurtion_dropdown_button}</arg>
 </arguments>
-<msg timestamp="20160727 15:15:32.352" level="INFO">Clicking link 'link=global'.</msg>
-<status status="PASS" endtime="20160727 15:15:32.471" starttime="20160727 15:15:32.352"></status>
-</kw>
-<kw name="Click Link" library="Selenium2Library">
-<doc>Clicks a link identified by locator.</doc>
-<arguments>
-<arg>link=French Riviera</arg>
-</arguments>
-<msg timestamp="20160727 15:15:32.472" level="INFO">Clicking link 'link=French Riviera'.</msg>
-<status status="PASS" endtime="20160727 15:15:34.779" starttime="20160727 15:15:32.471"></status>
-</kw>
-<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:34.842" starttime="20160727 15:15:34.781"></status>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is not visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:44.640" starttime="20160727 15:15:34.842"></status>
-</kw>
-<status status="PASS" endtime="20160727 15:15:44.640" starttime="20160727 15:15:34.780"></status>
+<msg timestamp="20160818 18:10:59.569" level="INFO">Clicking link 'xpath=//a[contains(text(),'Configuration')]'.</msg>
+<status status="PASS" endtime="20160818 18:10:59.652" starttime="20160818 18:10:59.569"></status>
 </kw>
 <kw name="Click Link" library="Selenium2Library">
 <doc>Clicks a link identified by locator.</doc>
 <arguments>
-<arg>xpath=${content_dropdown}</arg>
+<arg>xpath=${configuration_dropdown_location_managment}</arg>
 </arguments>
-<msg timestamp="20160727 15:15:44.641" level="INFO">Clicking link 'xpath=//*[@id='ai_menu']/ul[1]/li[1]/a'.</msg>
-<status status="PASS" endtime="20160727 15:15:44.741" starttime="20160727 15:15:44.641"></status>
+<msg timestamp="20160818 18:10:59.653" level="INFO">Clicking link 'xpath=//a[contains(text(),'Location Management')]'.</msg>
+<status status="PASS" endtime="20160818 18:11:01.251" starttime="20160818 18:10:59.653"></status>
 </kw>
-<kw name="Click Link" library="Selenium2Library">
-<doc>Clicks a link identified by locator.</doc>
-<arguments>
-<arg>css=${content_dropdown_directory}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:44.741" level="INFO">Clicking link 'css=#ai_menu &gt; ul:nth-child(1) &gt; li.dropdown.open &gt; ul &gt; li:nth-child(1) &gt; a'.</msg>
-<status status="PASS" endtime="20160727 15:15:47.009" starttime="20160727 15:15:44.741"></status>
-</kw>
-<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:47.045" starttime="20160727 15:15:47.011"></status>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is not visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:51.085" starttime="20160727 15:15:47.046"></status>
-</kw>
-<status status="PASS" endtime="20160727 15:15:51.086" starttime="20160727 15:15:47.010"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=${level1_category}</arg>
-<arg>10</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:51.120" starttime="20160727 15:15:51.086"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>xpath=${level1_category}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:51.121" level="INFO">Clicking element 'xpath=//*[@id="children-of-0"]/li[43]/a/span[2]'.</msg>
-<status status="PASS" endtime="20160727 15:15:51.204" starttime="20160727 15:15:51.120"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>xpath=${level2_category}</arg>
-<arg>10</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:51.265" starttime="20160727 15:15:51.204"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>xpath=${level2_category}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:51.266" level="INFO">Clicking element 'xpath=//li[43]/ul/li/a/span[3]'.</msg>
-<status status="PASS" endtime="20160727 15:15:51.373" starttime="20160727 15:15:51.265"></status>
-</kw>
-<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:51.453" starttime="20160727 15:15:51.374"></status>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is not visible.</doc>
-<arguments>
-<arg>css=body &gt; div.blockUI.blockOverlay</arg>
-<arg>${time}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:54.144" starttime="20160727 15:15:51.454"></status>
-</kw>
-<status status="PASS" endtime="20160727 15:15:54.144" starttime="20160727 15:15:51.373"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>xpath=${add_listing_button}</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:54.175" starttime="20160727 15:15:54.144"></status>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>xpath=${add_listing_button}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:54.176" level="INFO">Clicking element 'xpath=//th[6]/span/button'.</msg>
-<status status="PASS" endtime="20160727 15:15:55.335" starttime="20160727 15:15:54.175"></status>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<doc>Waits until element specified with `locator` appears on current page.</doc>
-<arguments>
-<arg>id=${new_listing_name}</arg>
-<arg>10</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:55.386" starttime="20160727 15:15:55.335"></status>
-</kw>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<doc>Waits until element specified with `locator` is visible.</doc>
-<arguments>
-<arg>id=${new_listing_name}</arg>
-<arg>10</arg>
-</arguments>
-<status status="PASS" endtime="20160727 15:15:55.465" starttime="20160727 15:15:55.386"></status>
-</kw>
-<kw name="Input Text" library="Selenium2Library">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>id=${new_listing_name}</arg>
-<arg>&amp;{DIRECTORYLISTING}[name]</arg>
-</arguments>
-<msg timestamp="20160727 15:15:55.466" level="INFO">Typing text 'Amanda Mcdaniel' into text field 'id=name'</msg>
-<status status="PASS" endtime="20160727 15:15:55.632" starttime="20160727 15:15:55.465"></status>
-</kw>
-<kw name="Execute Javascript" library="Selenium2Library">
-<doc>Executes the given JavaScript code.</doc>
-<arguments>
-<arg>document.querySelector('${content_box1}').innerText='&amp;{DIRECTORYLISTING}[content1]'</arg>
-</arguments>
-<msg timestamp="20160727 15:15:55.634" level="INFO">Executing JavaScript:
-document.querySelector('#listing_html_editor &gt; div.note-editor.panel.panel-default &gt; div.note-editing-area &gt; div.note-editable.panel-body').innerText='Eius ipsam ex nobis laborum a aperiam consequatur. Quam consequatur delectus saepe praesentium eligendi. Tenetur tempore laborum animi doloribus dicta quibusdam. Quae omnis omnis ab id sed ea.'</msg>
-<status status="PASS" endtime="20160727 15:15:55.657" starttime="20160727 15:15:55.633"></status>
-</kw>
-<kw name="Execute Javascript" library="Selenium2Library">
-<doc>Executes the given JavaScript code.</doc>
-<arguments>
-<arg>document.querySelector('${content_box2}').innterText='&amp;{DIRECTORYLISTING}[content2]'</arg>
-</arguments>
-<msg timestamp="20160727 15:15:55.658" level="INFO">Executing JavaScript:
-document.querySelector('#listing_html_editor_2 &gt; div.note-editor.panel.panel-default &gt; div.note-editing-area &gt; div.note-editable.panel-body').innterText='Eum eaque deleniti voluptatibus voluptates recusandae pariatur. Culpa error saepe fuga architecto saepe enim. Ipsum voluptas molestiae reprehenderit illum deserunt quo. Molestias qui blanditiis ipsa.'</msg>
-<status status="PASS" endtime="20160727 15:15:55.681" starttime="20160727 15:15:55.658"></status>
-</kw>
-<kw name="Click Button" library="Selenium2Library">
-<doc>Clicks a button identified by `locator`.</doc>
-<arguments>
-<arg>css=${slug_button}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:55.681" level="INFO">Clicking button 'css=div.input-area &gt; div.input-group &gt; span.input-group-btn &gt; button.btn.btn-default'.</msg>
-<status status="PASS" endtime="20160727 15:15:55.925" starttime="20160727 15:15:55.681"></status>
-</kw>
-<kw name="Click Button" library="Selenium2Library">
-<doc>Clicks a button identified by `locator`.</doc>
-<arguments>
-<arg>css=${save_button}</arg>
-</arguments>
-<msg timestamp="20160727 15:15:55.926" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
-<status status="PASS" endtime="20160727 15:15:56.241" starttime="20160727 15:15:55.925"></status>
-</kw>
-<status status="PASS" endtime="20160727 15:15:56.241" starttime="20160727 15:15:32.351"></status>
+<status status="PASS" endtime="20160818 18:11:01.251" starttime="20160818 18:10:59.568"></status>
 </kw>
 <kw type="teardown" name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20160727 15:15:56.752" starttime="20160727 15:15:56.242"></status>
+<status status="PASS" endtime="20160818 18:11:01.558" starttime="20160818 18:11:01.252"></status>
 </kw>
-<status status="PASS" endtime="20160727 15:15:56.752" critical="yes" starttime="20160727 15:15:17.959"></status>
+<status status="PASS" endtime="20160818 18:11:01.558" critical="yes" starttime="20160818 18:10:42.576"></status>
 </test>
 <doc>test suite with a mix of gherkin style tests and simple phrases</doc>
-<status status="PASS" endtime="20160727 15:15:56.755" starttime="20160727 15:15:16.021"></status>
+<status status="PASS" endtime="20160818 18:11:01.560" starttime="20160818 18:10:37.622"></status>
 </suite>
 <statistics>
 <total>

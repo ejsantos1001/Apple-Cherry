@@ -14,6 +14,14 @@ DICT__directorylisting = {
 }
 
 
+
+DICT__discussiontopic = {
+		'title' : fake.name(),
+		'content' : fake.text()
+}
+
+
+
 DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
 	    'password': 'Anglo123' , 

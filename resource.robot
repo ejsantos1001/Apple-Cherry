@@ -13,7 +13,7 @@ Library           FakerLibrary
 
 *** Variables ***
 ${SERVER}         stg.angloinfo.com
-${BROWSER}        Chrome
+${BROWSER}        chrome
 ${DELAY}          0
 ${ERROR URL}      http://${SERVER}/error.html
 ${RESPONSEBODY}
@@ -46,26 +46,33 @@ A user logs in the cms
     Click Button   css=${login_button}
 
 A user creates a directory
-    Click Link    link=${region_dropdown}
-    Click Link    link=French Riviera
+    Click Link                              link=${region_dropdown}
+    Click Link                              link=French Riviera
     Wait until spinner is finished for "60" seconds
-    Click Link    xpath=${content_dropdown}
-    Click Link    css=${content_dropdown_directory}
+    Click Link                              xpath=${content_dropdown}
+    Click Link                              css=${content_dropdown_directory}
     Wait until spinner is finished for "60" seconds
-    Wait until page contains element    xpath=${level1_category}   10
-    Click element   xpath=${level1_category}
-    Wait until element is visible   xpath=${level2_category}   10
-    Click element   xpath=${level2_category}
+    Wait until page contains element        xpath=${level1_category}   10
+    Click element                           xpath=${level1_category}
+    Wait until element is visible           xpath=${level2_category}   10
+    Click element                           xpath=${level2_category}
     Wait until spinner is finished for "60" seconds
-    Wait until page contains element   xpath=${add_listing_button}
-    Click element   xpath=${add_listing_button}
-    Wait until page contains element   id=${new_listing_name}   10
-    Wait until element is visible   id=${new_listing_name}   10
-    Input Text   id=${new_listing_name}   &{DIRECTORYLISTING}[name]
+    Wait until page contains element        xpath=${add_listing_button}
+    Click element                           xpath=${add_listing_button}
+    Wait until page contains element        id=${new_listing_name}   10
+    Wait until element is visible           id=${new_listing_name}   10
+    Input Text                              id=${new_listing_name}   &{DIRECTORYLISTING}[name]
     Execute javascript   document.querySelector('${content_box1}').innerText='&{DIRECTORYLISTING}[content1]'
     Execute javascript   document.querySelector('${content_box2}').innterText='&{DIRECTORYLISTING}[content2]'
-    Click button    css=${slug_button}
-    Click button    css=${save_button}
+    Click button                            css=${slug_button}
+    Click button                            css=${save_button}
+
+
+
+A user opens a regional location config page
+    Click Link                              xpath=${configurtion_dropdown_button}
+    Click Link                              xpath=${configuration_dropdown_location_managment}
+    Wait until spinner is finished for "60" seconds
 
 
 
@@ -99,13 +106,19 @@ A user posts a topic
     Wait until element is enabled    xpath=${discussion_topic_title}
     Wait until element is enabled    xpath=${summernote_link_button}
     Wait until element is enabled    xpath=${discussion_topic_editor}   10
-    Input text                       xpath=${discussion_topic_title}    placeholdertext
-    Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='text'
+    Input text                       xpath=${discussion_topic_title}    &{DISCUSSIONTOPIC}[title]
+    Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='&{DISCUSSIONTOPIC}[content]'
     Wait until element is visible    xpath=${second_continue_button}
     Click Button                     xpath=${second_continue_button}
 A success message appears
     Wait until element is visible    css=${success_text}
     Element should contain           css=${success_text}    Success
+
+
+
+
+
+
 
 
 

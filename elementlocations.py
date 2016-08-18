@@ -37,15 +37,18 @@ success_text ='#stateSuccess > table > tbody > tr > td:nth-child(2) > span'
 login_button = 'button.btn.btn-success'
 
 
-
-
 #cmstopbar
 
 region_dropdown = 'global'
 
 content_dropdown = "//*[@id='ai_menu']/ul[1]/li[1]/a"
 
+configurtion_dropdown_button = "//a[contains(text(),'Configuration')]"
+
 content_dropdown_directory = '#ai_menu > ul:nth-child(1) > li.dropdown.open > ul > li:nth-child(1) > a'
+
+configuration_dropdown_location_managment = "//a[contains(text(),'Location Management')]"
+
 
 
 #cmsregionsdashboard

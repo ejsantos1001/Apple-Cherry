@@ -22,14 +22,29 @@ Posting a discussion
     When a user posts a topic
     And a success message appears
 
-Creating a discussion via cms
+
+Creating a directory via cms
     Given a user is logged in the cms
     When a user creates a directory
+
+Regional Location configs did not change
+    Given a user logs in the cms
+    Then a user opens a regional location config page
+
+
+
+
+
+
+
 
 
 
 #Create "free" event directory listing via api
 #    Get password grant-type token
+
+
+
 
 
 
