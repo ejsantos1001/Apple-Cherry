@@ -10,6 +10,7 @@ Library           FakerLibrary
 *** Variables ***
 ${SERVER}         stg.angloinfo.com
 ${BROWSER}        chrome
+${DELAY}          0
 
 
 *** Keywords ***
