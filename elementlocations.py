@@ -1,6 +1,4 @@
-#
-
-
+#element locators
 
 #dashboardpage
 

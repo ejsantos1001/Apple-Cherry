@@ -1,8 +1,4 @@
 *** Settings ***
-Documentation     A resource file with reusable keywords and variables.
-...               The system specific keywords created here form our own
-...               domain specific language. They utilize keywords provided
-...               by the imported Libraries.
 Variables         data.py
 Variables         elementlocations.py
 Library           Selenium2Library
@@ -14,13 +10,9 @@ Library           FakerLibrary
 *** Variables ***
 ${SERVER}         stg.angloinfo.com
 ${BROWSER}        chrome
-${DELAY}          0
-${ERROR URL}      http://${SERVER}/error.html
-${RESPONSEBODY}
+
 
 *** Keywords ***
-# Key Phrases
-
 A user is logged in
     A valid user logs in
 

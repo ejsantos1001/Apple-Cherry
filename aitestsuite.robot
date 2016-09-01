@@ -1,12 +1,9 @@
 *** Settings ***
-Documentation     test suite with a mix of gherkin style tests and simple phrases
 Resource          resource.robot
 Test Teardown     Close Browser
 
 
 *** Test Cases ***
-
-
 Valid Login
     A valid user logs in
 
@@ -29,15 +26,3 @@ Regional Location configs did not change
     GIVEN a user logs in the cms
     AND a user opens a regional location config page
     THEN regional location configs should not change
-
-
-
-
-
-
-
-
-
-
-
-
