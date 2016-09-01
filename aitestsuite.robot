@@ -1,5 +1,6 @@
 *** Settings ***
 Resource          resource.robot
+Test Teardown     Close Browser
 
 
 
