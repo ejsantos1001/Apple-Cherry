@@ -73,7 +73,26 @@ A user opens a regional location config page
     Click Link                              xpath=${configurtion_dropdown_button}
     Click Link                              xpath=${configuration_dropdown_location_managment}
     Wait until spinner is finished for "60" seconds
+    Click Link                              xpath=${barcelona_element}
 
+regional location configs should not change
+    Textfield Value Should be               id=${type_eloc}             &{locationdata}[type]
+    Textfield Value Should be               id=${url_eloc}              &{locationdata}[url]
+    Textfield Value Should be               id=${name_eloc}             &{locationdata}[name]
+    Textfield Value Should be               id=${currency_eloc}         &{locationdata}[currency]
+    Textfield Value Should be               id=${contact_name_eloc}     &{locationdata}[contact_name]
+    Textfield Value Should be               id=${contact_address_eloc}  &{locationdata}[contact_address]
+    Textfield Value Should be               id=${contact_email_eloc}    &{locationdata}[contact_email]
+    Textfield Value Should be               id=${country_code_eloc}     &{locationdata}[country_code]
+    Textfield Value Should be               id=${tagline_eloc}          &{locationdata}[type]
+    Textfield Value Should be               id=${region_language_eloc}  &{locationdata}[language]
+    Textfield Value Should be               id=${facebook_page_eloc}    &{locationdata}[facebook]
+
+
+regional location menu configs should not change
+
+
+regional location ugc configs should not change
 
 
 Wait until spinner is finished for "${time}" seconds
@@ -115,30 +134,6 @@ A success message appears
     Element should contain           css=${success_text}    Success
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-User "${username}" logs in with password "${password}"
-    Input username    ${username}
-    Input password    ${password}
-    Submit credentials
-
 Get password grant-type token
     Create Http Context    stgapi.angloinfo.com    https
     Set Request Header   Content-Type    application/x-www-form-urlencoded
@@ -148,34 +143,5 @@ Get password grant-type token
     ${ACCESSTOKEN}=    Get Json Value    ${RESPONSEBODY}    /access_token
     Log to Console    ${ACCESSTOKEN}
 
-the login page is Open
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-    Maximize Browser Window
-    Set Selenium Speed    ${DELAY}
-    Login Page Should Be Open
 
 
-Login Page Should Be Open
-    Title Should Be    Login
-
-Go To Login Page
-    Go To    ${LOGIN URL}
-    Login Page Should Be Open
-    Log to Console ${LOGIN URL}
-
-Input Username
-    [Arguments]    ${username}
-    Input Text    formEmail   ${username}
-
-Input Password
-    [Arguments]    ${password}
-    Input Text    formPassword    ${password}
-
-Submit Credentials
-    Click Button    xpath=//*[@id="form-signin"]/button
-
-Dashboard Page Should Be Open
-    ${Test}=    Paragraphs
-    Location Should Be    ${DASHBOARD URL}
-    Element Text Should Be    xpath=//*[@id="profile-img-container"]/h1/span[1]    ${DISPLAY NAME}
-    Log to Console  ${Test}

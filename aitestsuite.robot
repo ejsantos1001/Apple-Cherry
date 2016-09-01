@@ -7,41 +7,34 @@ Test Teardown     Close Browser
 *** Test Cases ***
 
 
-
 Valid Login
     A valid user logs in
 
 Forgot password email test
-    Given a user is in the "reset" page
-    When a valid credential is reset
-    Then a reset email is recieved
+    GIVEN a user is in the "reset" page
+    WHEN a valid credential is reset
+    THEN a reset email is recieved
 
 Posting a discussion
-    Given a user is logged in
-    And a user opens the "discussions submit" page
-    When a user posts a topic
-    And a success message appears
-
+    GIVEN a user is logged in
+    AND a user opens the "discussions submit" page
+    WHEN a user posts a topic
+    AND a success message appears
 
 Creating a directory via cms
-    Given a user is logged in the cms
-    When a user creates a directory
+    GIVEN a user is logged in the cms
+    WHEN a user creates a directory
 
 Regional Location configs did not change
-    Given a user logs in the cms
-    Then a user opens a regional location config page
+    GIVEN a user logs in the cms
+    AND a user opens a regional location config page
+    THEN regional location configs should not change
 
 
 
 
 
 
-
-
-
-
-#Create "free" event directory listing via api
-#    Get password grant-type token
 
 
 

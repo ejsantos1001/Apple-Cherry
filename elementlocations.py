@@ -1,8 +1,13 @@
+#
+
+
+
 #dashboardpage
+
 display_name_location = '//*[@id="profile-img-container"]/h1/span[1]'
 
-
 #resetpage
+
 send_reset_link_xpath 					= '//*[@id="reset-form"]/form/button'
 
 reset_link_sent_confirmation_box_xpath  = '//*[@id="reset"]/div/div[1]/p'
@@ -28,10 +33,6 @@ discussion_topic_editor    = '//*[@id="stateForumTopic"]/form/div[2]'
 success_text ='#stateSuccess > table > tbody > tr > td:nth-child(2) > span'
 
 
-
-
-
-
 #cmsloginpage
 
 login_button = 'button.btn.btn-success'
@@ -49,6 +50,11 @@ content_dropdown_directory = '#ai_menu > ul:nth-child(1) > li.dropdown.open > ul
 
 configuration_dropdown_location_managment = "//a[contains(text(),'Location Management')]"
 
+
+#locations in location management
+
+barcelona_element = "//li[15]/a/span[2]"
+amsterdam_element = ""
 
 
 #cmsregionsdashboard
