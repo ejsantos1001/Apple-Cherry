@@ -57,7 +57,7 @@ DICT__locationdata = {
 		'url'              	: "/barcelona" ,
 		'name'			   	: "Barcelona",
 		'currency'         	: "EUR" ,
-		'contact_name'     	: "32768",
+		'contact_name'     	: "32767",
 		'contact_address'  	: "Peter de Montforts",
 		'contact_email'   	: "email@domain.com",
 		'country_code'    	: "ES",

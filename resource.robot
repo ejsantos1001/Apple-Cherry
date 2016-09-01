@@ -66,20 +66,33 @@ A user opens a regional location config page
     Click Link                              xpath=${configurtion_dropdown_button}
     Click Link                              xpath=${configuration_dropdown_location_managment}
     Wait until spinner is finished for "60" seconds
-    Click Link                              xpath=${barcelona_element}
+    Wait until element is visible           css=${barcelona_element_css}
+    Click Link                              css=${barcelona_element_css}
+
 
 regional location configs should not change
-    Textfield Value Should be               id=${type_eloc}             &{locationdata}[type]
-    Textfield Value Should be               id=${url_eloc}              &{locationdata}[url]
-    Textfield Value Should be               id=${name_eloc}             &{locationdata}[name]
-    Textfield Value Should be               id=${currency_eloc}         &{locationdata}[currency]
-    Textfield Value Should be               id=${contact_name_eloc}     &{locationdata}[contact_name]
-    Textfield Value Should be               id=${contact_address_eloc}  &{locationdata}[contact_address]
-    Textfield Value Should be               id=${contact_email_eloc}    &{locationdata}[contact_email]
-    Textfield Value Should be               id=${country_code_eloc}     &{locationdata}[country_code]
-    Textfield Value Should be               id=${tagline_eloc}          &{locationdata}[type]
-    Textfield Value Should be               id=${region_language_eloc}  &{locationdata}[language]
-    Textfield Value Should be               id=${facebook_page_eloc}    &{locationdata}[facebook]
+
+    ${config_type_value}                 Execute javascript      var value=document.querySelector('${eloc_location_management_type}').value;  return value;
+    Should be equal                      ${config_type_value}   &{locationdata}[type]
+
+    ${url_type_value}                    Execute javascript      var value=document.querySelector('${eloc_location_management_url }').value;  return value;
+    Should be equal                      ${url_type_value}       &{locationdata}[url]
+
+    ${name_type_value}                   Execute javascript       var value=document.querySelector('${eloc_location_management_name}').value;  return value;
+    Should be equal                      ${name_type_value}       &{locationdata}[name]
+
+    ${currency_type_value}               Execute javascript       var value=document.querySelector('${eloc_location_management_currency}').value;  return value;
+    Should be equal                      ${currency_type_value}       &{locationdata}[currency]
+
+    ${contactname_type_value}            Execute javascript             var value=document.querySelector('${eloc_location_management_contactname}').value;  return value;
+    Should be equal                      ${contactname_type_value}       &{locationdata}[contact_name]
+
+    #Textfield Value Should be               id=${eloc_location_management_contactaddress}   &{locationdata}[contact_address]
+    #Textfield Value Should be               id=${eloc_location_management_contactemail}     &{locationdata}[contact_email]
+    #Textfield Value Should be               id=${eloc_location_management_countrycode}      &{locationdata}[country_code]
+    #Textfield Value Should be               id=${eloc_location_management_language}         &{locationdata}[language]
+    #Textfield Value Should be               id=${eloc_location_management_tagline}          &{locationdata}[type]
+    #Textfield Value Should be               id=${eloc_location_management_ facebooklink}    &{locationdata}[facebook]
 
 
 regional location menu configs should not change
