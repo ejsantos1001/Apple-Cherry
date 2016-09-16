@@ -1,11 +1,15 @@
+#data variables, inluding dictionaries, created using python
+#dictionaries are prepended with DICT__
+#faker library used to generate random data
+
+
 from faker import Factory
 
 fake = Factory.create()
 
 baseurl = 'https://stg.angloinfo.com'
+
 cmsbaseurl = 'https://stgcms.angloinfo.com'
-
-
 
 DICT__directorylisting = {
 		'name' : fake.name(),
@@ -13,6 +17,10 @@ DICT__directorylisting = {
 		'content2' : fake.text()
 }
 
+DICT__discussiontopic = {
+		'title' : fake.name(),
+		'content' : fake	.text()
+}	
 
 DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
@@ -34,17 +42,36 @@ DICT__cmsuser = {
 }
 
 location = DICT__validuser['default_loc']
-basepluslocation = baseurl + "/" + location 
+basepluslocation = baseurl + "/" + location
 
 DICT__resource = {
 		'cmssignin': cmsbaseurl , 
 		'signin':  baseurl + '/member/signin',
 		'reset': baseurl + '/member/reset',
 		'dashboard':  basepluslocation + '/member/dashboard',
-		'discussions submit': basepluslocation + '/content/discussions/submit'
+		'discussions submit': basepluslocation + '/content/discussions/submit',
+		'discussions index' : basepluslocation + 'discussions'
+ }
+
+DICT__locationdata = {
+		'type'             	: "Regional" ,
+		'url'              	: "/barcelona" ,
+		'name'			   	: "Barcelona",
+		'currency'         	: "EUR" ,
+		'contact_name'     	: "32767",
+		'contact_number'	: "32768",
+		'contact_address'  	: "Peter de Montforts",
+		'contact_email'   	: "email@domain.com",
+		'country_code'    	: "ES",
+		'language'        	: "Spanish",
+		'tagline'         	: "Life in Barcelona, in English!",
+		'region_email'	  	: "barcelona@angloinfo.com",
+		'facebook_page'   	: "www.facebook.com"
 }
 
 
-DICT__region = {
-		
-}
+
+
+
+
+

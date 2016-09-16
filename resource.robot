@@ -1,8 +1,4 @@
 *** Settings ***
-Documentation     A resource file with reusable keywords and variables.
-...               The system specific keywords created here form our own
-...               domain specific language. They utilize keywords provided
-...               by the imported Libraries.
 Variables         data.py
 Variables         elementlocations.py
 Library           Selenium2Library
@@ -13,14 +9,11 @@ Library           FakerLibrary
 
 *** Variables ***
 ${SERVER}         stg.angloinfo.com
-${BROWSER}        Chrome
+${BROWSER}        chrome
 ${DELAY}          0
-${ERROR URL}      http://${SERVER}/error.html
-${RESPONSEBODY}
+
 
 *** Keywords ***
-# Key Phrases
-
 A user is logged in
     A valid user logs in
 
@@ -46,27 +39,85 @@ A user logs in the cms
     Click Button   css=${login_button}
 
 A user creates a directory
-    Click Link    link=${region_dropdown}
-    Click Link    link=French Riviera
+    A user opens the cms content dropdown
+    Click Link                              css=${content_dropdown_directory}
     Wait until spinner is finished for "60" seconds
-    Click Link    xpath=${content_dropdown}
-    Click Link    css=${content_dropdown_directory}
+    Wait until page contains element        xpath=${level1_category}   10
+    Click element                           xpath=${level1_category}
+    Wait until element is visible           xpath=${level2_category}   10
+    Click element                           xpath=${level2_category}
     Wait until spinner is finished for "60" seconds
-    Wait until page contains element    xpath=${level1_category}   10
-    Click element   xpath=${level1_category}
-    Wait until element is visible   xpath=${level2_category}   10
-    Click element   xpath=${level2_category}
-    Wait until spinner is finished for "60" seconds
-    Wait until page contains element   xpath=${add_listing_button}
-    Click element   xpath=${add_listing_button}
-    Wait until page contains element   id=${new_listing_name}   10
-    Wait until element is visible   id=${new_listing_name}   10
-    Input Text   id=${new_listing_name}   &{DIRECTORYLISTING}[name]
+    Wait until page contains element        xpath=${add_listing_button}
+    Click element                           xpath=${add_listing_button}
+    Wait until page contains element        id=${new_listing_name}   10
+    Wait until element is visible           id=${new_listing_name}   10
+    Input Text                              id=${new_listing_name}   &{DIRECTORYLISTING}[name]
     Execute javascript   document.querySelector('${content_box1}').innerText='&{DIRECTORYLISTING}[content1]'
     Execute javascript   document.querySelector('${content_box2}').innterText='&{DIRECTORYLISTING}[content2]'
-    Click button    css=${slug_button}
-    Click button    css=${save_button}
+    Click button                            css=${slug_button}
+    Click button                            css=${save_button}
 
+
+A user creates a classifieds
+    A user opens the cms content dropdown
+    Clink Link                              css=${content_dropdown_classifieds_option_css_locator}
+    Wait until spinner is finished for "60" seconds
+
+
+A user opens the cms content dropdown
+    Click Link                              link=${region_dropdown}
+    Click Link                              link=French Riviera
+    Wait until spinner is finished for "60" seconds
+    Click Link                              xpath=${content_dropdown}
+
+A user opens a regional location config page
+    Click Link                              xpath=${configurtion_dropdown_button}
+    Click Link                              xpath=${configuration_dropdown_location_managment}
+    Wait until spinner is finished for "60" seconds
+    Wait until element is visible           css=${barcelona_element_css}
+    Click Link                              css=${barcelona_element_css}
+
+
+
+
+
+
+regional location configs should not change
+
+    ${config_type_value}                 Execute javascript      var value=document.querySelector('${eloc_location_management_type}').value;  return value;
+    Should be equal                      ${config_type_value}   &{locationdata}[type]
+
+    ${url_type_value}                    Execute javascript      var value=document.querySelector('${eloc_location_management_url }').value;  return value;
+    Should be equal                      ${url_type_value}       &{locationdata}[url]
+
+    ${name_type_value}                   Execute javascript      var value=document.querySelector('${eloc_location_management_name}').value;  return value;
+    Should be equal                      ${name_type_value}       &{locationdata}[name]
+
+    ${currency_type_value}               Execute javascript       var value=document.querySelector('${eloc_location_management_currency}').value;  return value;
+    Should be equal                      ${currency_type_value}    &{locationdata}[currency]
+
+    ${contactname_type_value}            Execute javascript             var value=document.querySelector('${eloc_location_management_contactname}').value;  return value;
+    Should be equal                      ${contactname_type_value}       &{locationdata}[contact_name]
+
+    ${contactaddress_type_value}        Execute Javascript              var value=document.querySelector('${eloc_location_management_contactaddress}').value; return value;
+    Should be equal                     ${contactaddress_type_value}    &{locationdata}[contact_address]
+
+    ${number_value}                     Execute Javascript              var value=document.querySelector('${eloc_location_management_number}').value; return value;
+    Should be equal                       ${number_value}               &{locationdata}[contact_number]
+
+    ${country_code_value}               Execute Javascript              var value=document.querySelector('${eloc_location_management_countrycode}').value; return value;
+    Should be equal                     ${country_code_value}           &{locationdata}[country_code]
+
+    ${language_value}                   Execute Javascript              var value=document.querySelector('${eloc_location_management_language}').value;  return value;
+    Should be equal                     ${language_value}               &{locationdata}[language]
+
+
+
+
+regional location menu configs should not change
+
+
+regional location ugc configs should not change
 
 
 Wait until spinner is finished for "${time}" seconds
@@ -82,6 +133,7 @@ A user is in the "${pagename}" page
 A user opens the "${pagename}" page
     Go to  &{RESOURCE}[${pagename}]
 
+
 A valid credential is reset
     Input text   formEmail    &{USERFORRESET}[username]
     Click Button    xpath=${send_reset_link_xpath}
@@ -94,37 +146,20 @@ A reset email is recieved
     Mark Email as Read    ${LATEST}
 
 A user posts a topic
+    Wait until element is enabled    id=${category_dropdown}
     Select from list by index        id=${category_dropdown}    1
     Click Button                     xpath=${first_continue_button}
     Wait until element is enabled    xpath=${discussion_topic_title}
     Wait until element is enabled    xpath=${summernote_link_button}
     Wait until element is enabled    xpath=${discussion_topic_editor}   10
-    Input text                       xpath=${discussion_topic_title}    placeholdertext
-    Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='text'
+    Input text                       xpath=${discussion_topic_title}    &{DISCUSSIONTOPIC}[title]
+    Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='&{DISCUSSIONTOPIC}[content]'
     Wait until element is visible    xpath=${second_continue_button}
     Click Button                     xpath=${second_continue_button}
 A success message appears
     Wait until element is visible    css=${success_text}
     Element should contain           css=${success_text}    Success
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-User "${username}" logs in with password "${password}"
-    Input username    ${username}
-    Input password    ${password}
-    Submit credentials
 
 Get password grant-type token
     Create Http Context    stgapi.angloinfo.com    https
@@ -135,34 +170,10 @@ Get password grant-type token
     ${ACCESSTOKEN}=    Get Json Value    ${RESPONSEBODY}    /access_token
     Log to Console    ${ACCESSTOKEN}
 
-the login page is Open
-    Open Browser    ${LOGIN URL}    ${BROWSER}
-    Maximize Browser Window
-    Set Selenium Speed    ${DELAY}
-    Login Page Should Be Open
 
+A user clicks see more listings
+    Click Link      css=${see_more_listings_button_discussions_css_selector}
 
-Login Page Should Be Open
-    Title Should Be    Login
+the eleventh listing should display
 
-Go To Login Page
-    Go To    ${LOGIN URL}
-    Login Page Should Be Open
-    Log to Console ${LOGIN URL}
-
-Input Username
-    [Arguments]    ${username}
-    Input Text    formEmail   ${username}
-
-Input Password
-    [Arguments]    ${password}
-    Input Text    formPassword    ${password}
-
-Submit Credentials
-    Click Button    xpath=//*[@id="form-signin"]/button
-
-Dashboard Page Should Be Open
-    ${Test}=    Paragraphs
-    Location Should Be    ${DASHBOARD URL}
-    Element Text Should Be    xpath=//*[@id="profile-img-container"]/h1/span[1]    ${DISPLAY NAME}
-    Log to Console  ${Test}
+    Wait until element is visible    xpath=${eleventh_listing_discussion_index_xpath_selector}

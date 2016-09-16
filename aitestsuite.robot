@@ -1,35 +1,36 @@
 *** Settings ***
-Documentation     test suite with a mix of gherkin style tests and simple phrases
 Resource          resource.robot
 Test Teardown     Close Browser
 
 
+
 *** Test Cases ***
-
-
-
 Valid Login
     A valid user logs in
 
 Forgot password email test
-    Given a user is in the "reset" page
-    When a valid credential is reset
-    Then a reset email is recieved
+    GIVEN a user is in the "reset" page
+    WHEN a valid credential is reset
+    THEN a reset email is recieved
 
 Posting a discussion
-    Given a user is logged in
-    And a user opens the "discussions submit" page
-    When a user posts a topic
-    And a success message appears
+    GIVEN a user is logged in
+    AND a user opens the "discussions submit" page
+    WHEN a user posts a topic
+    AND a success message appears
 
-Creating a discussion via cms
-    Given a user is logged in the cms
-    When a user creates a directory
+Pagination works in the discussions index
+    GIVEN a user is logged in
+    AND a user opens the "discussions index" page
+    WHEN a user clicks see more listings
+    THEN the eleventh listing should display
 
+Creating a directory via cms
+    GIVEN a user is logged in the cms
+    WHEN a user creates a directory
 
-
-#Create "free" event directory listing via api
-#    Get password grant-type token
-
-
+Regional Location configs did not change
+    GIVEN a user logs in the cms
+    AND a user opens a regional location config page
+    THEN regional location configs should not change
 
