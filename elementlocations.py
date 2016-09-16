@@ -33,6 +33,7 @@ region_dropdown = 'global'
 content_dropdown = "//*[@id='ai_menu']/ul[1]/li[1]/a"
 configurtion_dropdown_button = "//a[contains(text(),'Configuration')]"
 content_dropdown_directory = '#ai_menu > ul:nth-child(1) > li.dropdown.open > ul > li:nth-child(1) > a'
+content_dropdown_classifieds_option_css_locator = '#ai_menu > ul:nth-child(1) > li.dropdown.open > ul > li:nth-child(2) > a'
 configuration_dropdown_location_managment = "//a[contains(text(),'Location Management')]"
 
 
@@ -82,4 +83,6 @@ save_button = 'button.btn.btn-success'
 
 
 
-
+#discusions index
+see_more_listings_button_discussions_css_selector = '#btn-see-more-discussion'
+eleventh_listing_discussion_index_xpath_selector = '//*[@id="recentListings"]/div[11]/div'

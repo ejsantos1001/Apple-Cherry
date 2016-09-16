@@ -19,6 +19,12 @@ Posting a discussion
     WHEN a user posts a topic
     AND a success message appears
 
+Pagination works in the discussions index
+    GIVEN a user is logged in
+    AND a user opens the "discussions index" page
+    WHEN a user clicks see more listings
+    THEN the eleventh listing should display
+
 Creating a directory via cms
     GIVEN a user is logged in the cms
     WHEN a user creates a directory
@@ -27,3 +33,4 @@ Regional Location configs did not change
     GIVEN a user logs in the cms
     AND a user opens a regional location config page
     THEN regional location configs should not change
+

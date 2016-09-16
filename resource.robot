@@ -39,10 +39,7 @@ A user logs in the cms
     Click Button   css=${login_button}
 
 A user creates a directory
-    Click Link                              link=${region_dropdown}
-    Click Link                              link=French Riviera
-    Wait until spinner is finished for "60" seconds
-    Click Link                              xpath=${content_dropdown}
+    A user opens the cms content dropdown
     Click Link                              css=${content_dropdown_directory}
     Wait until spinner is finished for "60" seconds
     Wait until page contains element        xpath=${level1_category}   10
@@ -61,6 +58,17 @@ A user creates a directory
     Click button                            css=${save_button}
 
 
+A user creates a classifieds
+    A user opens the cms content dropdown
+    Clink Link                              css=${content_dropdown_classifieds_option_css_locator}
+    Wait until spinner is finished for "60" seconds
+
+
+A user opens the cms content dropdown
+    Click Link                              link=${region_dropdown}
+    Click Link                              link=French Riviera
+    Wait until spinner is finished for "60" seconds
+    Click Link                              xpath=${content_dropdown}
 
 A user opens a regional location config page
     Click Link                              xpath=${configurtion_dropdown_button}
@@ -68,6 +76,10 @@ A user opens a regional location config page
     Wait until spinner is finished for "60" seconds
     Wait until element is visible           css=${barcelona_element_css}
     Click Link                              css=${barcelona_element_css}
+
+
+
+
 
 
 regional location configs should not change
@@ -78,21 +90,28 @@ regional location configs should not change
     ${url_type_value}                    Execute javascript      var value=document.querySelector('${eloc_location_management_url }').value;  return value;
     Should be equal                      ${url_type_value}       &{locationdata}[url]
 
-    ${name_type_value}                   Execute javascript       var value=document.querySelector('${eloc_location_management_name}').value;  return value;
+    ${name_type_value}                   Execute javascript      var value=document.querySelector('${eloc_location_management_name}').value;  return value;
     Should be equal                      ${name_type_value}       &{locationdata}[name]
 
     ${currency_type_value}               Execute javascript       var value=document.querySelector('${eloc_location_management_currency}').value;  return value;
-    Should be equal                      ${currency_type_value}       &{locationdata}[currency]
+    Should be equal                      ${currency_type_value}    &{locationdata}[currency]
 
     ${contactname_type_value}            Execute javascript             var value=document.querySelector('${eloc_location_management_contactname}').value;  return value;
     Should be equal                      ${contactname_type_value}       &{locationdata}[contact_name]
 
-    #Textfield Value Should be               id=${eloc_location_management_contactaddress}   &{locationdata}[contact_address]
-    #Textfield Value Should be               id=${eloc_location_management_contactemail}     &{locationdata}[contact_email]
-    #Textfield Value Should be               id=${eloc_location_management_countrycode}      &{locationdata}[country_code]
-    #Textfield Value Should be               id=${eloc_location_management_language}         &{locationdata}[language]
-    #Textfield Value Should be               id=${eloc_location_management_tagline}          &{locationdata}[type]
-    #Textfield Value Should be               id=${eloc_location_management_ facebooklink}    &{locationdata}[facebook]
+    ${contactaddress_type_value}        Execute Javascript              var value=document.querySelector('${eloc_location_management_contactaddress}').value; return value;
+    Should be equal                     ${contactaddress_type_value}    &{locationdata}[contact_address]
+
+    ${number_value}                     Execute Javascript              var value=document.querySelector('${eloc_location_management_number}').value; return value;
+    Should be equal                       ${number_value}               &{locationdata}[contact_number]
+
+    ${country_code_value}               Execute Javascript              var value=document.querySelector('${eloc_location_management_countrycode}').value; return value;
+    Should be equal                     ${country_code_value}           &{locationdata}[country_code]
+
+    ${language_value}                   Execute Javascript              var value=document.querySelector('${eloc_location_management_language}').value;  return value;
+    Should be equal                     ${language_value}               &{locationdata}[language]
+
+
 
 
 regional location menu configs should not change
@@ -114,6 +133,7 @@ A user is in the "${pagename}" page
 A user opens the "${pagename}" page
     Go to  &{RESOURCE}[${pagename}]
 
+
 A valid credential is reset
     Input text   formEmail    &{USERFORRESET}[username]
     Click Button    xpath=${send_reset_link_xpath}
@@ -126,6 +146,7 @@ A reset email is recieved
     Mark Email as Read    ${LATEST}
 
 A user posts a topic
+    Wait until element is enabled    id=${category_dropdown}
     Select from list by index        id=${category_dropdown}    1
     Click Button                     xpath=${first_continue_button}
     Wait until element is enabled    xpath=${discussion_topic_title}
@@ -150,4 +171,9 @@ Get password grant-type token
     Log to Console    ${ACCESSTOKEN}
 
 
+A user clicks see more listings
+    Click Link      css=${see_more_listings_button_discussions_css_selector}
 
+the eleventh listing should display
+
+    Wait until element is visible    xpath=${eleventh_listing_discussion_index_xpath_selector}

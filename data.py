@@ -19,8 +19,8 @@ DICT__directorylisting = {
 
 DICT__discussiontopic = {
 		'title' : fake.name(),
-		'content' : fake.text()
-}
+		'content' : fake	.text()
+}	
 
 DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
@@ -49,8 +49,9 @@ DICT__resource = {
 		'signin':  baseurl + '/member/signin',
 		'reset': baseurl + '/member/reset',
 		'dashboard':  basepluslocation + '/member/dashboard',
-		'discussions submit': basepluslocation + '/content/discussions/submit'
-}
+		'discussions submit': basepluslocation + '/content/discussions/submit',
+		'discussions index' : basepluslocation + 'discussions'
+ }
 
 DICT__locationdata = {
 		'type'             	: "Regional" ,
@@ -58,6 +59,7 @@ DICT__locationdata = {
 		'name'			   	: "Barcelona",
 		'currency'         	: "EUR" ,
 		'contact_name'     	: "32767",
+		'contact_number'	: "32768",
 		'contact_address'  	: "Peter de Montforts",
 		'contact_email'   	: "email@domain.com",
 		'country_code'    	: "ES",
