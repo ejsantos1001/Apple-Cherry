@@ -11,6 +11,10 @@ baseurl = 'https://stg.angloinfo.com'
 
 cmsbaseurl = 'https://stgcms.angloinfo.com'
 
+
+
+
+
 DICT__directorylisting = {
 		'name' : fake.name(),
 		'content1' : fake.text(),
@@ -24,9 +28,11 @@ DICT__discussiontopic = {
 
 DICT__validuser = {
 	    'username': 'ainfo1001+stg101@gmail.com', 
+	    'firstname' : 'afirstname9633',
 	    'password': 'Anglo123' , 
 	    'default_loc': 'riviera',
-	    'displayname': 'staging test account'
+	    'displayname': 'staging test account',
+	    'movieiframesrc' : 'https://riviera.cumberbatch.me/whatson/moviesiframe'
 }
 
 DICT__userforreset = {
@@ -50,7 +56,10 @@ DICT__resource = {
 		'reset': baseurl + '/member/reset',
 		'dashboard':  basepluslocation + '/member/dashboard',
 		'discussions submit': basepluslocation + '/content/discussions/submit',
-		'discussions index' : basepluslocation + 'discussions'
+		'discussions index' : basepluslocation + '/discussions',
+		'how-to index'      : basepluslocation + '/how-to',
+		'property'			: basepluslocation + '/property',
+		'movies'			: basepluslocation + '/events/movies'
  }
 
 DICT__locationdata = {
@@ -70,7 +79,8 @@ DICT__locationdata = {
 }
 
 
-
+greeting_plus_firstname_string  =   "Hello " +  DICT__validuser['firstname']
+your_adverstising_account = '(' + DICT__validuser['username'] + ')'
 
 
 

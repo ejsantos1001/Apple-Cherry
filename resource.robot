@@ -145,9 +145,10 @@ A reset email is recieved
     @{RESET LINKS}=   get links from email    ${LATEST}
     Mark Email as Read    ${LATEST}
 
-A user posts a topic
+a user posts a discussion topic
     Wait until element is enabled    id=${category_dropdown}
     Select from list by index        id=${category_dropdown}    1
+    Wait until element is enabled    xpath=${first_continue_button}
     Click Button                     xpath=${first_continue_button}
     Wait until element is enabled    xpath=${discussion_topic_title}
     Wait until element is enabled    xpath=${summernote_link_button}
@@ -156,9 +157,23 @@ A user posts a topic
     Execute Javascript               document.querySelector('${discussion_text_editor}').innerText='&{DISCUSSIONTOPIC}[content]'
     Wait until element is visible    xpath=${second_continue_button}
     Click Button                     xpath=${second_continue_button}
+
 A success message appears
     Wait until element is visible    css=${success_text}
     Element should contain           css=${success_text}    Success
+
+the user data is picked up by the property site
+    ${value}                         Execute Javascript             var value=document.querySelector('${greeting_plus_firstname_string_element_locator_css}').innerText; return value;
+    Should be equal                  ${value}                       ${greeting_plus_firstname_string }
+
+    ${value}                         Execute Javascript             var value=document.querySelector('${you_adverstising_account_element_locator_css}').innerText; return value;
+    Should be equal                  ${value}                       ${your_adverstising_account}
+
+the movie iframe is displayed
+    Wait until element is visible    css=${iframe_element_locator_css}
+    ${test_value}                    Get element attribute      css=${iframe_element_locator_css}@src
+    Should be equal                  ${test_value}              &{validuser}[movieiframesrc]
+
 
 
 Get password grant-type token
@@ -172,7 +187,8 @@ Get password grant-type token
 
 
 A user clicks see more listings
-    Click Link      css=${see_more_listings_button_discussions_css_selector}
+    Wait until element is enabled       css=${see_more_listings_button_discussions_css_selector}
+    Click Link                          css=${see_more_listings_button_discussions_css_selector}
 
 the eleventh listing should display
 

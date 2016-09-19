@@ -86,3 +86,12 @@ save_button = 'button.btn.btn-success'
 #discusions index
 see_more_listings_button_discussions_css_selector = '#btn-see-more-discussion'
 eleventh_listing_discussion_index_xpath_selector = '//*[@id="recentListings"]/div[11]/div'
+
+
+#propertypage
+
+greeting_plus_firstname_string_element_locator_css='#bootstrapWrap > div > h1'
+you_adverstising_account_element_locator_css='body > section > div.container > div > div > h2 > small'
+
+#movies
+iframe_element_locator_css='#movieFrame'
