@@ -1,7 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20160919 18:59:30.325" generator="Robot 3.0 (Python 2.7.10 on darwin)">
+<robot generated="20160921 20:22:44.425" generator="Robot 3.0 (Python 2.7.10 on darwin)">
 <suite source="/Users/ejsantos/Documents/robot/Apple-Cherry/aitestsuite.robot" id="s1" name="Aitestsuite">
-<test id="s1-t1" name="Movies page working">
+<test id="s1-t1" name="Valid Login">
+<kw name="A valid user logs in" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[signin]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:22:49.669" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/signin'</msg>
+<status status="PASS" endtime="20160921 20:23:07.112" starttime="20160921 20:22:49.667"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:23:07.733" starttime="20160921 20:23:07.113"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:23:07.734" starttime="20160921 20:23:07.733"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Login</arg>
+</arguments>
+<msg timestamp="20160921 20:23:07.748" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" endtime="20160921 20:23:07.748" starttime="20160921 20:23:07.734"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formEmail</arg>
+<arg>&amp;{VALIDUSER}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:23:07.749" level="INFO">Typing text 'ainfo1001+stg101@gmail.com' into text field 'formEmail'</msg>
+<status status="PASS" endtime="20160921 20:23:08.393" starttime="20160921 20:23:07.749"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formPassword</arg>
+<arg>&amp;{VALIDUSER}[password]</arg>
+</arguments>
+<msg timestamp="20160921 20:23:08.395" level="INFO">Typing text 'Anglo123' into text field 'formPassword'</msg>
+<status status="PASS" endtime="20160921 20:23:08.898" starttime="20160921 20:23:08.394"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="form-signin"]/button</arg>
+</arguments>
+<msg timestamp="20160921 20:23:08.899" level="INFO">Clicking button 'xpath=//*[@id="form-signin"]/button'.</msg>
+<status status="PASS" endtime="20160921 20:23:30.875" starttime="20160921 20:23:08.898"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:23:31.025" starttime="20160921 20:23:30.875"></status>
+</kw>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<doc>Verifies element identified by `locator` exactly contains text `expected`.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>&amp;{VALIDUSER}[displayname]</arg>
+</arguments>
+<msg timestamp="20160921 20:23:31.026" level="INFO">Verifying element 'xpath=//*[@id="profile-img-container"]/h1/span[1]' contains exactly text 'staging test account'.</msg>
+<status status="PASS" endtime="20160921 20:23:31.103" starttime="20160921 20:23:31.025"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:23:31.103" starttime="20160921 20:22:49.667"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:23:31.416" starttime="20160921 20:23:31.103"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:23:31.416" critical="yes" starttime="20160921 20:22:49.666"></status>
+</test>
+<test id="s1-t2" name="Forgot password email test">
+<kw name="GIVEN a user is in the &quot;reset&quot; page" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[${pagename}]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:23:31.419" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/reset'</msg>
+<status status="PASS" endtime="20160921 20:23:48.571" starttime="20160921 20:23:31.419"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:23:49.095" starttime="20160921 20:23:48.572"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:23:49.096" starttime="20160921 20:23:49.095"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:23:49.096" starttime="20160921 20:23:31.418"></status>
+</kw>
+<kw name="WHEN a valid credential is reset" library="resource">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formEmail</arg>
+<arg>&amp;{USERFORRESET}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:23:49.097" level="INFO">Typing text 'ainfo1001+stg102@gmail.com' into text field 'formEmail'</msg>
+<status status="PASS" endtime="20160921 20:23:49.797" starttime="20160921 20:23:49.097"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=${send_reset_link_xpath}</arg>
+</arguments>
+<msg timestamp="20160921 20:23:49.798" level="INFO">Clicking button 'xpath=//*[@id="reset-form"]/form/button'.</msg>
+<status status="PASS" endtime="20160921 20:23:49.897" starttime="20160921 20:23:49.798"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=${reset_link_sent_confirmation_box_xpath}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:23:53.002" starttime="20160921 20:23:49.898"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:23:53.003" starttime="20160921 20:23:49.097"></status>
+</kw>
+<kw name="THEN a reset email is recieved" library="resource">
+<kw name="Open Mailbox" library="ImapLibrary">
+<doc>Open IMAP email client session to given ``host`` with given ``user`` and ``password``.</doc>
+<arguments>
+<arg>host=imap.gmail.com</arg>
+<arg>user=ainfo1001@gmail.com</arg>
+<arg>password=anglo123</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:23:59.194" starttime="20160921 20:23:53.004"></status>
+</kw>
+<kw name="Wait For Email" library="ImapLibrary">
+<doc>Wait for email message to arrived base on any given filter criteria.</doc>
+<arguments>
+<arg>subject=Your AngloInfo Password Reset Link</arg>
+<arg>sender=noreply@angloinfo.com</arg>
+</arguments>
+<assign>
+<var>${LATEST}</var>
+</assign>
+<msg timestamp="20160921 20:23:59.841" level="INFO">${LATEST} = 1494</msg>
+<status status="PASS" endtime="20160921 20:23:59.842" starttime="20160921 20:23:59.194"></status>
+</kw>
+<kw name="Get Links From Email" library="ImapLibrary">
+<doc>Returns all links found in the email body from given ``email_index``.</doc>
+<arguments>
+<arg>${LATEST}</arg>
+</arguments>
+<assign>
+<var>@{RESET LINKS}</var>
+</assign>
+<msg timestamp="20160921 20:24:00.372" level="INFO">@{RESET LINKS} = [ # | http://mandrillapp.com/track/click/30680376/www.facebook.com?p=eyJzIjoiZWtGaUFjc25iVTNmQ0hFX1Y4MzZHWUtXdkhJIiwidiI6MSwicCI6IntcInVcIjozMDY4MDM3NixcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5...</msg>
+<status status="PASS" endtime="20160921 20:24:00.372" starttime="20160921 20:23:59.842"></status>
+</kw>
+<kw name="Mark Email As Read" library="ImapLibrary">
+<doc>Mark email on given ``email_index`` as read.</doc>
+<arguments>
+<arg>${LATEST}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:24:00.601" starttime="20160921 20:24:00.373"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:24:00.601" starttime="20160921 20:23:53.003"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:24:00.770" starttime="20160921 20:24:00.602"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:24:00.770" critical="yes" starttime="20160921 20:23:31.417"></status>
+</test>
+<test id="s1-t3" name="Posting a discussion">
 <kw name="GIVEN a user is logged in" library="resource">
 <kw name="A valid user logs in" library="resource">
 <kw name="Open Browser" library="Selenium2Library">
@@ -10,27 +191,27 @@
 <arg>&amp;{RESOURCE}[signin]</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20160919 18:59:34.617" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/signin'</msg>
-<status status="PASS" endtime="20160919 18:59:48.683" starttime="20160919 18:59:34.617"></status>
+<msg timestamp="20160921 20:24:00.773" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/signin'</msg>
+<status status="PASS" endtime="20160921 20:24:10.224" starttime="20160921 20:24:00.773"></status>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" endtime="20160919 18:59:49.210" starttime="20160919 18:59:48.684"></status>
+<status status="PASS" endtime="20160921 20:24:10.786" starttime="20160921 20:24:10.225"></status>
 </kw>
 <kw name="Set Selenium Speed" library="Selenium2Library">
 <doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
 <arguments>
 <arg>${DELAY}</arg>
 </arguments>
-<status status="PASS" endtime="20160919 18:59:49.211" starttime="20160919 18:59:49.211"></status>
+<status status="PASS" endtime="20160921 20:24:10.787" starttime="20160921 20:24:10.786"></status>
 </kw>
 <kw name="Title Should Be" library="Selenium2Library">
 <doc>Verifies that current page title equals `title`.</doc>
 <arguments>
 <arg>Login</arg>
 </arguments>
-<msg timestamp="20160919 18:59:49.226" level="INFO">Page title is 'Login'.</msg>
-<status status="PASS" endtime="20160919 18:59:49.226" starttime="20160919 18:59:49.211"></status>
+<msg timestamp="20160921 20:24:10.793" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" endtime="20160921 20:24:10.793" starttime="20160921 20:24:10.787"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -38,8 +219,8 @@
 <arg>formEmail</arg>
 <arg>&amp;{VALIDUSER}[username]</arg>
 </arguments>
-<msg timestamp="20160919 18:59:49.227" level="INFO">Typing text 'ainfo1001+stg101@gmail.com' into text field 'formEmail'</msg>
-<status status="PASS" endtime="20160919 18:59:49.523" starttime="20160919 18:59:49.226"></status>
+<msg timestamp="20160921 20:24:10.794" level="INFO">Typing text 'ainfo1001+stg101@gmail.com' into text field 'formEmail'</msg>
+<status status="PASS" endtime="20160921 20:24:10.974" starttime="20160921 20:24:10.794"></status>
 </kw>
 <kw name="Input Text" library="Selenium2Library">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
@@ -47,16 +228,16 @@
 <arg>formPassword</arg>
 <arg>&amp;{VALIDUSER}[password]</arg>
 </arguments>
-<msg timestamp="20160919 18:59:49.526" level="INFO">Typing text 'Anglo123' into text field 'formPassword'</msg>
-<status status="PASS" endtime="20160919 18:59:49.700" starttime="20160919 18:59:49.524"></status>
+<msg timestamp="20160921 20:24:10.976" level="INFO">Typing text 'Anglo123' into text field 'formPassword'</msg>
+<status status="PASS" endtime="20160921 20:24:11.087" starttime="20160921 20:24:10.975"></status>
 </kw>
 <kw name="Click Button" library="Selenium2Library">
 <doc>Clicks a button identified by `locator`.</doc>
 <arguments>
 <arg>xpath=//*[@id="form-signin"]/button</arg>
 </arguments>
-<msg timestamp="20160919 18:59:49.701" level="INFO">Clicking button 'xpath=//*[@id="form-signin"]/button'.</msg>
-<status status="PASS" endtime="20160919 19:00:01.139" starttime="20160919 18:59:49.700"></status>
+<msg timestamp="20160921 20:24:11.088" level="INFO">Clicking button 'xpath=//*[@id="form-signin"]/button'.</msg>
+<status status="PASS" endtime="20160921 20:24:24.403" starttime="20160921 20:24:11.088"></status>
 </kw>
 <kw name="Wait Until Page Contains Element" library="Selenium2Library">
 <doc>Waits until element specified with `locator` appears on current page.</doc>
@@ -64,7 +245,7 @@
 <arg>xpath=${display_name_location}</arg>
 <arg>20</arg>
 </arguments>
-<status status="PASS" endtime="20160919 19:00:01.198" starttime="20160919 19:00:01.139"></status>
+<status status="PASS" endtime="20160921 20:24:24.512" starttime="20160921 20:24:24.403"></status>
 </kw>
 <kw name="Element Text Should Be" library="Selenium2Library">
 <doc>Verifies element identified by `locator` exactly contains text `expected`.</doc>
@@ -72,12 +253,123 @@
 <arg>xpath=${display_name_location}</arg>
 <arg>&amp;{VALIDUSER}[displayname]</arg>
 </arguments>
-<msg timestamp="20160919 19:00:01.201" level="INFO">Verifying element 'xpath=//*[@id="profile-img-container"]/h1/span[1]' contains exactly text 'staging test account'.</msg>
-<status status="PASS" endtime="20160919 19:00:01.233" starttime="20160919 19:00:01.199"></status>
+<msg timestamp="20160921 20:24:24.514" level="INFO">Verifying element 'xpath=//*[@id="profile-img-container"]/h1/span[1]' contains exactly text 'staging test account'.</msg>
+<status status="PASS" endtime="20160921 20:24:24.573" starttime="20160921 20:24:24.513"></status>
 </kw>
-<status status="PASS" endtime="20160919 19:00:01.234" starttime="20160919 18:59:34.616"></status>
+<status status="PASS" endtime="20160921 20:24:24.574" starttime="20160921 20:24:00.772"></status>
 </kw>
-<status status="PASS" endtime="20160919 19:00:01.235" starttime="20160919 18:59:34.616"></status>
+<status status="PASS" endtime="20160921 20:24:24.574" starttime="20160921 20:24:00.771"></status>
+</kw>
+<kw name="AND a user opens the &quot;discussions submit&quot; page" library="resource">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[${pagename}]</arg>
+</arguments>
+<msg timestamp="20160921 20:24:24.577" level="INFO">Opening url 'https://stg.angloinfo.com/riviera/content/discussions/submit'</msg>
+<status status="PASS" endtime="20160921 20:24:32.266" starttime="20160921 20:24:24.577"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:24:32.267" starttime="20160921 20:24:24.576"></status>
+</kw>
+<kw name="WHEN a user posts a discussion topic" library="resource">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>id=${category_dropdown}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20160921 20:24:38.198" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20160921 20:24:38.198" starttime="20160921 20:24:37.366"></status>
+</kw>
+<msg timestamp="20160921 20:24:38.230" level="FAIL">Element 'id=parentCategory' was not visible in 5 seconds</msg>
+<status status="FAIL" endtime="20160921 20:24:38.231" starttime="20160921 20:24:32.271"></status>
+</kw>
+<status status="FAIL" endtime="20160921 20:24:38.231" starttime="20160921 20:24:32.268"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:24:38.514" starttime="20160921 20:24:38.232"></status>
+</kw>
+<status status="FAIL" endtime="20160921 20:24:38.514" critical="yes" starttime="20160921 20:24:00.771">Element 'id=parentCategory' was not visible in 5 seconds</status>
+</test>
+<test id="s1-t4" name="Movies page working">
+<kw name="GIVEN a user is logged in" library="resource">
+<kw name="A valid user logs in" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[signin]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:24:38.518" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/signin'</msg>
+<status status="PASS" endtime="20160921 20:24:52.903" starttime="20160921 20:24:38.517"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:24:53.397" starttime="20160921 20:24:52.903"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:24:53.398" starttime="20160921 20:24:53.398"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Login</arg>
+</arguments>
+<msg timestamp="20160921 20:24:53.404" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" endtime="20160921 20:24:53.405" starttime="20160921 20:24:53.398"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formEmail</arg>
+<arg>&amp;{VALIDUSER}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:24:53.405" level="INFO">Typing text 'ainfo1001+stg101@gmail.com' into text field 'formEmail'</msg>
+<status status="PASS" endtime="20160921 20:24:53.567" starttime="20160921 20:24:53.405"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formPassword</arg>
+<arg>&amp;{VALIDUSER}[password]</arg>
+</arguments>
+<msg timestamp="20160921 20:24:53.568" level="INFO">Typing text 'Anglo123' into text field 'formPassword'</msg>
+<status status="PASS" endtime="20160921 20:24:53.679" starttime="20160921 20:24:53.567"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="form-signin"]/button</arg>
+</arguments>
+<msg timestamp="20160921 20:24:53.680" level="INFO">Clicking button 'xpath=//*[@id="form-signin"]/button'.</msg>
+<status status="PASS" endtime="20160921 20:25:12.206" starttime="20160921 20:24:53.679"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:25:12.300" starttime="20160921 20:25:12.206"></status>
+</kw>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<doc>Verifies element identified by `locator` exactly contains text `expected`.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>&amp;{VALIDUSER}[displayname]</arg>
+</arguments>
+<msg timestamp="20160921 20:25:12.301" level="INFO">Verifying element 'xpath=//*[@id="profile-img-container"]/h1/span[1]' contains exactly text 'staging test account'.</msg>
+<status status="PASS" endtime="20160921 20:25:12.335" starttime="20160921 20:25:12.301"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:25:12.335" starttime="20160921 20:24:38.517"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:25:12.335" starttime="20160921 20:24:38.516"></status>
 </kw>
 <kw name="AND a user opens the &quot;movies&quot; page" library="resource">
 <kw name="Go To" library="Selenium2Library">
@@ -85,10 +377,10 @@
 <arguments>
 <arg>&amp;{RESOURCE}[${pagename}]</arg>
 </arguments>
-<msg timestamp="20160919 19:00:01.237" level="INFO">Opening url 'https://stg.angloinfo.com/riviera/events/movies'</msg>
-<status status="PASS" endtime="20160919 19:00:14.593" starttime="20160919 19:00:01.237"></status>
+<msg timestamp="20160921 20:25:12.337" level="INFO">Opening url 'https://stg.angloinfo.com/riviera/events/movies'</msg>
+<status status="PASS" endtime="20160921 20:25:19.365" starttime="20160921 20:25:12.336"></status>
 </kw>
-<status status="PASS" endtime="20160919 19:00:14.593" starttime="20160919 19:00:01.236"></status>
+<status status="PASS" endtime="20160921 20:25:19.367" starttime="20160921 20:25:12.336"></status>
 </kw>
 <kw name="Then the movie iframe is displayed" library="resource">
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
@@ -96,7 +388,7 @@
 <arguments>
 <arg>css=${iframe_element_locator_css}</arg>
 </arguments>
-<status status="PASS" endtime="20160919 19:00:14.638" starttime="20160919 19:00:14.594"></status>
+<status status="PASS" endtime="20160921 20:25:19.424" starttime="20160921 20:25:19.373"></status>
 </kw>
 <kw name="Get Element Attribute" library="Selenium2Library">
 <doc>Return value of element attribute.</doc>
@@ -106,8 +398,8 @@
 <assign>
 <var>${test_value}</var>
 </assign>
-<msg timestamp="20160919 19:00:14.659" level="INFO">${test_value} = https://riviera.cumberbatch.me/whatson/moviesiframe</msg>
-<status status="PASS" endtime="20160919 19:00:14.659" starttime="20160919 19:00:14.638"></status>
+<msg timestamp="20160921 20:25:19.454" level="INFO">${test_value} = https://riviera.cumberbatch.me/whatson/moviesiframe</msg>
+<status status="PASS" endtime="20160921 20:25:19.454" starttime="20160921 20:25:19.425"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -115,26 +407,733 @@
 <arg>${test_value}</arg>
 <arg>&amp;{validuser}[movieiframesrc]</arg>
 </arguments>
-<msg timestamp="20160919 19:00:14.660" level="INFO">Argument types are:
+<msg timestamp="20160921 20:25:19.456" level="INFO">Argument types are:
 &lt;type 'unicode'&gt;
 &lt;type 'str'&gt;</msg>
-<status status="PASS" endtime="20160919 19:00:14.660" starttime="20160919 19:00:14.659"></status>
+<status status="PASS" endtime="20160921 20:25:19.456" starttime="20160921 20:25:19.454"></status>
 </kw>
-<status status="PASS" endtime="20160919 19:00:14.660" starttime="20160919 19:00:14.594"></status>
+<status status="PASS" endtime="20160921 20:25:19.456" starttime="20160921 20:25:19.372"></status>
 </kw>
-<status status="PASS" endtime="20160919 19:00:14.661" critical="yes" starttime="20160919 18:59:34.613"></status>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:25:19.670" starttime="20160921 20:25:19.456"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:25:19.670" critical="yes" starttime="20160921 20:24:38.515"></status>
 </test>
-<status status="PASS" endtime="20160919 19:00:14.662" starttime="20160919 18:59:30.327"></status>
+<test id="s1-t5" name="Properties account integration">
+<kw name="GIVEN a user is logged in" library="resource">
+<kw name="A valid user logs in" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[signin]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:25:19.673" level="INFO">Opening browser 'chrome' to base url 'https://stg.angloinfo.com/member/signin'</msg>
+<status status="PASS" endtime="20160921 20:25:32.932" starttime="20160921 20:25:19.673"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:25:33.432" starttime="20160921 20:25:32.933"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:25:33.433" starttime="20160921 20:25:33.433"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Login</arg>
+</arguments>
+<msg timestamp="20160921 20:25:33.440" level="INFO">Page title is 'Login'.</msg>
+<status status="PASS" endtime="20160921 20:25:33.440" starttime="20160921 20:25:33.433"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formEmail</arg>
+<arg>&amp;{VALIDUSER}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:25:33.441" level="INFO">Typing text 'ainfo1001+stg101@gmail.com' into text field 'formEmail'</msg>
+<status status="PASS" endtime="20160921 20:25:33.641" starttime="20160921 20:25:33.440"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>formPassword</arg>
+<arg>&amp;{VALIDUSER}[password]</arg>
+</arguments>
+<msg timestamp="20160921 20:25:33.642" level="INFO">Typing text 'Anglo123' into text field 'formPassword'</msg>
+<status status="PASS" endtime="20160921 20:25:33.805" starttime="20160921 20:25:33.641"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id="form-signin"]/button</arg>
+</arguments>
+<msg timestamp="20160921 20:25:33.806" level="INFO">Clicking button 'xpath=//*[@id="form-signin"]/button'.</msg>
+<status status="PASS" endtime="20160921 20:25:46.854" starttime="20160921 20:25:33.806"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>20</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:25:46.953" starttime="20160921 20:25:46.854"></status>
+</kw>
+<kw name="Element Text Should Be" library="Selenium2Library">
+<doc>Verifies element identified by `locator` exactly contains text `expected`.</doc>
+<arguments>
+<arg>xpath=${display_name_location}</arg>
+<arg>&amp;{VALIDUSER}[displayname]</arg>
+</arguments>
+<msg timestamp="20160921 20:25:46.955" level="INFO">Verifying element 'xpath=//*[@id="profile-img-container"]/h1/span[1]' contains exactly text 'staging test account'.</msg>
+<status status="PASS" endtime="20160921 20:25:46.984" starttime="20160921 20:25:46.954"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:25:46.985" starttime="20160921 20:25:19.672"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:25:46.985" starttime="20160921 20:25:19.672"></status>
+</kw>
+<kw name="AND a user opens the &quot;property&quot; page" library="resource">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[${pagename}]</arg>
+</arguments>
+<msg timestamp="20160921 20:25:47.016" level="INFO">Opening url 'https://stg.angloinfo.com/riviera/property'</msg>
+<status status="PASS" endtime="20160921 20:27:14.704" starttime="20160921 20:25:46.987"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:27:14.704" starttime="20160921 20:25:46.986"></status>
+</kw>
+<kw name="Then the user data is picked up by the property site" library="resource">
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${greeting_plus_firstname_string_element_locator_css}').innerText; return value;</arg>
+</arguments>
+<assign>
+<var>${value}</var>
+</assign>
+<msg timestamp="20160921 20:27:14.706" level="INFO">Executing JavaScript:
+var value=document.querySelector('#bootstrapWrap &gt; div &gt; h1').innerText; return value;</msg>
+<msg timestamp="20160921 20:27:14.714" level="INFO">${value} = Hello, afirstname9633</msg>
+<status status="PASS" endtime="20160921 20:27:14.714" starttime="20160921 20:27:14.705"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${value}</arg>
+<arg>${greeting_plus_firstname_string }</arg>
+</arguments>
+<msg timestamp="20160921 20:27:14.715" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<msg timestamp="20160921 20:27:14.716" level="FAIL">Hello, afirstname9633 != Hello afirstname9633</msg>
+<status status="FAIL" endtime="20160921 20:27:14.716" starttime="20160921 20:27:14.715"></status>
+</kw>
+<status status="FAIL" endtime="20160921 20:27:14.717" starttime="20160921 20:27:14.705"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:27:14.955" starttime="20160921 20:27:14.718"></status>
+</kw>
+<status status="FAIL" endtime="20160921 20:27:14.955" critical="yes" starttime="20160921 20:25:19.671">Hello, afirstname9633 != Hello afirstname9633</status>
+</test>
+<test id="s1-t6" name="Creating a directory via cms">
+<kw name="GIVEN a user is logged in the cms" library="resource">
+<kw name="A user logs in the cms" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[cmssignin]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:27:14.959" level="INFO">Opening browser 'chrome' to base url 'https://stgcms.angloinfo.com'</msg>
+<status status="PASS" endtime="20160921 20:27:27.245" starttime="20160921 20:27:14.958"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:27:27.724" starttime="20160921 20:27:27.245"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>email</arg>
+<arg>&amp;{CMSUSER}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:27:27.725" level="INFO">Typing text 'dev@angloinfo.com' into text field 'email'</msg>
+<status status="PASS" endtime="20160921 20:27:27.900" starttime="20160921 20:27:27.725"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>&amp;{CMSuser}[password]</arg>
+</arguments>
+<msg timestamp="20160921 20:27:27.901" level="INFO">Typing text 'penguin' into text field 'password'</msg>
+<status status="PASS" endtime="20160921 20:27:28.025" starttime="20160921 20:27:27.901"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=${login_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:27:28.026" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
+<status status="PASS" endtime="20160921 20:27:36.343" starttime="20160921 20:27:28.025"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:27:36.344" starttime="20160921 20:27:14.958"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:27:36.344" starttime="20160921 20:27:14.957"></status>
+</kw>
+<kw name="WHEN a user creates a directory" library="resource">
+<kw name="A user opens the cms content dropdown" library="resource">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>link=${region_dropdown}</arg>
+</arguments>
+<msg timestamp="20160921 20:27:36.346" level="INFO">Clicking link 'link=global'.</msg>
+<status status="PASS" endtime="20160921 20:27:36.445" starttime="20160921 20:27:36.345"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>link=French Riviera</arg>
+</arguments>
+<msg timestamp="20160921 20:27:36.446" level="INFO">Clicking link 'link=French Riviera'.</msg>
+<status status="PASS" endtime="20160921 20:27:39.480" starttime="20160921 20:27:36.445"></status>
+</kw>
+<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:27:39.545" starttime="20160921 20:27:39.482"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is not visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:15.329" starttime="20160921 20:27:39.546"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:15.330" starttime="20160921 20:27:39.481"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>xpath=${content_dropdown}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:15.330" level="INFO">Clicking link 'xpath=//*[@id='ai_menu']/ul[1]/li[1]/a'.</msg>
+<status status="PASS" endtime="20160921 20:28:15.395" starttime="20160921 20:28:15.330"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:15.396" starttime="20160921 20:27:36.345"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>css=${content_dropdown_directory}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:15.396" level="INFO">Clicking link 'css=#ai_menu &gt; ul:nth-child(1) &gt; li.dropdown.open &gt; ul &gt; li:nth-child(1) &gt; a'.</msg>
+<status status="PASS" endtime="20160921 20:28:18.235" starttime="20160921 20:28:15.396"></status>
+</kw>
+<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:18.280" starttime="20160921 20:28:18.236"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is not visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:22.971" starttime="20160921 20:28:18.280"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:22.971" starttime="20160921 20:28:18.235"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=${level1_category}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:23.004" starttime="20160921 20:28:22.971"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=${level1_category}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:23.012" level="INFO">Clicking element 'xpath=//*[@id="children-of-0"]/li[43]/a/span[2]'.</msg>
+<status status="PASS" endtime="20160921 20:28:23.077" starttime="20160921 20:28:23.005"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>xpath=${level2_category}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:23.363" starttime="20160921 20:28:23.078"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=${level2_category}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:23.364" level="INFO">Clicking element 'xpath=//li[43]/ul/li/a/span[3]'.</msg>
+<status status="PASS" endtime="20160921 20:28:23.427" starttime="20160921 20:28:23.363"></status>
+</kw>
+<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:23.491" starttime="20160921 20:28:23.428"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is not visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:26.585" starttime="20160921 20:28:23.491"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:26.585" starttime="20160921 20:28:23.427"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=${add_listing_button}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:26.638" starttime="20160921 20:28:26.585"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=${add_listing_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:26.639" level="INFO">Clicking element 'xpath=//th[6]/span/button'.</msg>
+<status status="PASS" endtime="20160921 20:28:27.591" starttime="20160921 20:28:26.638"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=${new_listing_name}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:27.647" starttime="20160921 20:28:27.591"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>id=${new_listing_name}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:27.671" starttime="20160921 20:28:27.647"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=${new_listing_name}</arg>
+<arg>&amp;{DIRECTORYLISTING}[name]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:27.672" level="INFO">Typing text 'Carolyn Garrison' into text field 'id=name'</msg>
+<status status="PASS" endtime="20160921 20:28:27.865" starttime="20160921 20:28:27.671"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>document.querySelector('${content_box1}').innerText='&amp;{DIRECTORYLISTING}[content1]'</arg>
+</arguments>
+<msg timestamp="20160921 20:28:27.868" level="INFO">Executing JavaScript:
+document.querySelector('#listing_html_editor &gt; div.note-editor.panel.panel-default &gt; div.note-editing-area &gt; div.note-editable.panel-body').innerText='Dolorem veniam veniam rerum. Adipisci consequuntur beatae velit atque aspernatur. Quo mollitia odit maiores.'</msg>
+<status status="PASS" endtime="20160921 20:28:27.878" starttime="20160921 20:28:27.866"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>document.querySelector('${content_box2}').innterText='&amp;{DIRECTORYLISTING}[content2]'</arg>
+</arguments>
+<msg timestamp="20160921 20:28:27.879" level="INFO">Executing JavaScript:
+document.querySelector('#listing_html_editor_2 &gt; div.note-editor.panel.panel-default &gt; div.note-editing-area &gt; div.note-editable.panel-body').innterText='Perferendis officiis ea voluptatum itaque quaerat corporis assumenda. Deserunt laborum ipsam animi voluptatibus. Eveniet at inventore mollitia pariatur aperiam velit eaque.'</msg>
+<status status="PASS" endtime="20160921 20:28:27.887" starttime="20160921 20:28:27.878"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=${slug_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:27.888" level="INFO">Clicking button 'css=div.input-area &gt; div.input-group &gt; span.input-group-btn &gt; button.btn.btn-default'.</msg>
+<status status="PASS" endtime="20160921 20:28:28.018" starttime="20160921 20:28:27.887"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=${save_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:28.019" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
+<status status="PASS" endtime="20160921 20:28:28.703" starttime="20160921 20:28:28.018"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:28.703" starttime="20160921 20:27:36.344"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:28:29.345" starttime="20160921 20:28:28.704"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:29.346" critical="yes" starttime="20160921 20:27:14.956"></status>
+</test>
+<test id="s1-t7" name="Regional Location configs did not change">
+<kw name="GIVEN a user logs in the cms" library="resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>&amp;{RESOURCE}[cmssignin]</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:29.349" level="INFO">Opening browser 'chrome' to base url 'https://stgcms.angloinfo.com'</msg>
+<status status="PASS" endtime="20160921 20:28:39.715" starttime="20160921 20:28:29.348"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20160921 20:28:40.193" starttime="20160921 20:28:39.716"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>email</arg>
+<arg>&amp;{CMSUSER}[username]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:40.194" level="INFO">Typing text 'dev@angloinfo.com' into text field 'email'</msg>
+<status status="PASS" endtime="20160921 20:28:40.395" starttime="20160921 20:28:40.193"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>&amp;{CMSuser}[password]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:40.397" level="INFO">Typing text 'penguin' into text field 'password'</msg>
+<status status="PASS" endtime="20160921 20:28:40.512" starttime="20160921 20:28:40.396"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>css=${login_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:40.513" level="INFO">Clicking button 'css=button.btn.btn-success'.</msg>
+<status status="PASS" endtime="20160921 20:28:45.638" starttime="20160921 20:28:40.512"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:45.639" starttime="20160921 20:28:29.348"></status>
+</kw>
+<kw name="AND a user opens a regional location config page" library="resource">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>xpath=${configurtion_dropdown_button}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:45.640" level="INFO">Clicking link 'xpath=//a[contains(text(),'Configuration')]'.</msg>
+<status status="PASS" endtime="20160921 20:28:45.710" starttime="20160921 20:28:45.640"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>xpath=${configuration_dropdown_location_managment}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:45.711" level="INFO">Clicking link 'xpath=//a[contains(text(),'Location Management')]'.</msg>
+<status status="PASS" endtime="20160921 20:28:51.605" starttime="20160921 20:28:45.711"></status>
+</kw>
+<kw name="Wait until spinner is finished for &quot;60&quot; seconds" library="resource">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:51.658" starttime="20160921 20:28:51.607"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is not visible.</doc>
+<arguments>
+<arg>css=body &gt; div.blockUI.blockOverlay</arg>
+<arg>${time}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:53.452" starttime="20160921 20:28:51.658"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:53.453" starttime="20160921 20:28:51.606"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>css=${barcelona_element_css}</arg>
+</arguments>
+<status status="PASS" endtime="20160921 20:28:53.483" starttime="20160921 20:28:53.453"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>css=${barcelona_element_css}</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.483" level="INFO">Clicking link 'css=#ai-content &gt; div &gt; div &gt; div.col-xs-3.fill-height.right-pane &gt; div &gt; div.panel-body.scrollable.nopad &gt; ul &gt; li:nth-child(15) &gt; a'.</msg>
+<status status="PASS" endtime="20160921 20:28:53.554" starttime="20160921 20:28:53.483"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:53.554" starttime="20160921 20:28:45.639"></status>
+</kw>
+<kw name="THEN regional location configs should not change" library="resource">
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_type}').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${config_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.555" level="INFO">Executing JavaScript:
+var value=document.querySelector('#type').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.567" level="INFO">${config_type_value} = Regional</msg>
+<status status="PASS" endtime="20160921 20:28:53.567" starttime="20160921 20:28:53.555"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${config_type_value}</arg>
+<arg>&amp;{locationdata}[type]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.568" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.568" starttime="20160921 20:28:53.567"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_url }').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${url_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.570" level="INFO">Executing JavaScript:
+var value=document.querySelector('#url').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.576" level="INFO">${url_type_value} = /barcelona</msg>
+<status status="PASS" endtime="20160921 20:28:53.576" starttime="20160921 20:28:53.569"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${url_type_value}</arg>
+<arg>&amp;{locationdata}[url]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.577" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.577" starttime="20160921 20:28:53.576"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_name}').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${name_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.577" level="INFO">Executing JavaScript:
+var value=document.querySelector('#name').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.583" level="INFO">${name_type_value} = Barcelona</msg>
+<status status="PASS" endtime="20160921 20:28:53.583" starttime="20160921 20:28:53.577"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${name_type_value}</arg>
+<arg>&amp;{locationdata}[name]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.584" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.584" starttime="20160921 20:28:53.583"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_currency}').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${currency_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.585" level="INFO">Executing JavaScript:
+var value=document.querySelector('#currency').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.593" level="INFO">${currency_type_value} = EUR</msg>
+<status status="PASS" endtime="20160921 20:28:53.593" starttime="20160921 20:28:53.585"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${currency_type_value}</arg>
+<arg>&amp;{locationdata}[currency]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.594" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.594" starttime="20160921 20:28:53.593"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_contactname}').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${contactname_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.595" level="INFO">Executing JavaScript:
+var value=document.querySelector('#contact_name').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.601" level="INFO">${contactname_type_value} = 32767</msg>
+<status status="PASS" endtime="20160921 20:28:53.601" starttime="20160921 20:28:53.594"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contactname_type_value}</arg>
+<arg>&amp;{locationdata}[contact_name]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.603" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.603" starttime="20160921 20:28:53.602"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_contactaddress}').value; return value;</arg>
+</arguments>
+<assign>
+<var>${contactaddress_type_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.604" level="INFO">Executing JavaScript:
+var value=document.querySelector('#contact_address').value; return value;</msg>
+<msg timestamp="20160921 20:28:53.610" level="INFO">${contactaddress_type_value} = Peter de Montforts</msg>
+<status status="PASS" endtime="20160921 20:28:53.610" starttime="20160921 20:28:53.603"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contactaddress_type_value}</arg>
+<arg>&amp;{locationdata}[contact_address]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.611" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.611" starttime="20160921 20:28:53.610"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_number}').value; return value;</arg>
+</arguments>
+<assign>
+<var>${number_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.611" level="INFO">Executing JavaScript:
+var value=document.querySelector('#contact_number').value; return value;</msg>
+<msg timestamp="20160921 20:28:53.617" level="INFO">${number_value} = 32768</msg>
+<status status="PASS" endtime="20160921 20:28:53.618" starttime="20160921 20:28:53.611"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${number_value}</arg>
+<arg>&amp;{locationdata}[contact_number]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.619" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.619" starttime="20160921 20:28:53.618"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_countrycode}').value; return value;</arg>
+</arguments>
+<assign>
+<var>${country_code_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.619" level="INFO">Executing JavaScript:
+var value=document.querySelector('#country_code').value; return value;</msg>
+<msg timestamp="20160921 20:28:53.625" level="INFO">${country_code_value} = ES</msg>
+<status status="PASS" endtime="20160921 20:28:53.625" starttime="20160921 20:28:53.619"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${country_code_value}</arg>
+<arg>&amp;{locationdata}[country_code]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.626" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.626" starttime="20160921 20:28:53.626"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>var value=document.querySelector('${eloc_location_management_language}').value;</arg>
+<arg>return value;</arg>
+</arguments>
+<assign>
+<var>${language_value}</var>
+</assign>
+<msg timestamp="20160921 20:28:53.627" level="INFO">Executing JavaScript:
+var value=document.querySelector('#region_language').value;return value;</msg>
+<msg timestamp="20160921 20:28:53.633" level="INFO">${language_value} = Spanish</msg>
+<status status="PASS" endtime="20160921 20:28:53.633" starttime="20160921 20:28:53.626"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${language_value}</arg>
+<arg>&amp;{locationdata}[language]</arg>
+</arguments>
+<msg timestamp="20160921 20:28:53.634" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20160921 20:28:53.634" starttime="20160921 20:28:53.634"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:53.635" starttime="20160921 20:28:53.554"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20160921 20:28:53.723" starttime="20160921 20:28:53.635"></status>
+</kw>
+<status status="PASS" endtime="20160921 20:28:53.723" critical="yes" starttime="20160921 20:28:29.347"></status>
+</test>
+<status status="FAIL" endtime="20160921 20:28:53.725" starttime="20160921 20:22:44.427"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="2" pass="5">Critical Tests</stat>
+<stat fail="2" pass="5">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Aitestsuite" pass="1">Aitestsuite</stat>
+<stat fail="2" id="s1" name="Aitestsuite" pass="5">Aitestsuite</stat>
 </suite>
 </statistics>
 <errors>

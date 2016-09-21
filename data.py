@@ -79,7 +79,7 @@ DICT__locationdata = {
 }
 
 
-greeting_plus_firstname_string  =   "Hello " +  DICT__validuser['firstname']
+greeting_plus_firstname_string  =   "Hello, " +  DICT__validuser['firstname']
 your_adverstising_account = '(' + DICT__validuser['username'] + ')'
 
 

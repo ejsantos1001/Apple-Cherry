@@ -145,10 +145,10 @@ A reset email is recieved
     @{RESET LINKS}=   get links from email    ${LATEST}
     Mark Email as Read    ${LATEST}
 
-a user posts a discussion topic
-    Wait until element is enabled    id=${category_dropdown}
+A user posts a discussion topic
+    Wait until element is visible    id=${category_dropdown}
     Select from list by index        id=${category_dropdown}    1
-    Wait until element is enabled    xpath=${first_continue_button}
+    Wait until element is visible    xpath=${first_continue_button}
     Click Button                     xpath=${first_continue_button}
     Wait until element is enabled    xpath=${discussion_topic_title}
     Wait until element is enabled    xpath=${summernote_link_button}

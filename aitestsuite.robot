@@ -1,6 +1,6 @@
 *** Settings ***
 Resource          resource.robot
-#Test Teardown     Close Browser
+Test Teardown     Close Browser
 
 
 
@@ -27,21 +27,18 @@ Posting a discussion
 Movies page working
     GIVEN a user is logged in
     AND a user opens the "movies" page
-    Then the movie iframe is displayed
-
+    THEN the movie iframe is displayed
 
 
 Properties account integration
     GIVEN a user is logged in
     AND a user opens the "property" page
-    Then the user data is picked up by the property site
-
+    THEN the user data is picked up by the property site
 
 
 Creating a directory via cms
     GIVEN a user is logged in the cms
     WHEN a user creates a directory
-
 
 
 Regional Location configs did not change
