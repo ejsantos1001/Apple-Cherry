@@ -95,3 +95,14 @@ you_adverstising_account_element_locator_css='body > section > div.container > d
 
 #movies
 iframe_element_locator_css='#movieFrame'
+
+#content sponsor
+content_sponsor_widget_locator_id  = 'sponsor-box-widget' 
+content_sponsor_widget_locator_css = '#sponsor-box-widget > div > div > div.panel-header.small.text-center'
+
+#ads
+ad_728by90_container_locator_id= "google_ads_iframe_/31457341/riviera_728x90_0__container__"
+ad_300by250_container_locator_id="google_ads_iframe_/31457341/riviera_160x600_0__container__"
+ad_160by600_containter_locator_id="google_ads_iframe_/31457341/riviera_300x250_0"
+
+

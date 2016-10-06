@@ -55,11 +55,12 @@ DICT__resource = {
 		'signin':  baseurl + '/member/signin',
 		'reset': baseurl + '/member/reset',
 		'dashboard':  basepluslocation + '/member/dashboard',
-		'discussions submit': basepluslocation + '/content/discussions/submit',
-		'discussions index' : basepluslocation + '/discussions',
-		'how-to index'      : basepluslocation + '/how-to',
-		'property'			: basepluslocation + '/property',
-		'movies'			: basepluslocation + '/events/movies'
+		'discussions submit'	: basepluslocation + '/content/discussions/submit',
+		'discussions index' 	: basepluslocation + '/discussions',
+		'how-to index'      	: basepluslocation + '/how-to',
+		'property'				: basepluslocation + '/property',
+		'movies'				: basepluslocation + '/events/movies',
+		'classifieds index'     : basepluslocation + '/classifieds'
  }
 
 DICT__locationdata = {

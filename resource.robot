@@ -14,9 +14,6 @@ ${DELAY}          0
 
 
 *** Keywords ***
-A user is logged in
-    A valid user logs in
-
 A valid user logs in
     Open Browser    &{RESOURCE}[signin]    ${BROWSER}
     Maximize Browser Window
@@ -27,6 +24,9 @@ A valid user logs in
     Click Button    xpath=//*[@id="form-signin"]/button
     Wait Until Page Contains Element    xpath=${display_name_location}   20
     Element Text Should Be    xpath=${display_name_location}    &{VALIDUSER}[displayname]
+
+A user is logged in
+    A valid user logs in
 
 A user is logged in the cms
     A user logs in the cms
@@ -174,6 +174,14 @@ the movie iframe is displayed
     ${test_value}                    Get element attribute      css=${iframe_element_locator_css}@src
     Should be equal                  ${test_value}              &{validuser}[movieiframesrc]
 
+the content sponsor widget is visible
+    Wait until page contains element        id=${content_sponsor_widget_locator_id}
+
+
+ads should be visible
+    Wait until page contains element  id=${ad_728by90_container_locator_id}
+    Wait until page contains element  id=${ad_300by250_container_locator_id}
+    Wait until page contains element  id=${ad_160by600_containter_locator_id}
 
 
 Get password grant-type token
