@@ -1,4 +1,4 @@
-*** Settings ***
+** Settings ***
 Variables         data.py
 Variables         elementlocations.py
 Library           Selenium2Library
@@ -39,34 +39,43 @@ A user logs in the cms
     Click Button   css=${login_button}
 
 A user creates a directory
+    A user selects a region
     A user opens the cms content dropdown
-    Click Link                              css=${content_dropdown_directory}
-    Wait until spinner is finished for "60" seconds
-    Wait until page contains element        xpath=${level1_category}   10
-    Click element                           xpath=${level1_category}
-    Wait until element is visible           xpath=${level2_category}   10
-    Click element                           xpath=${level2_category}
-    Wait until spinner is finished for "60" seconds
-    Wait until page contains element        xpath=${add_listing_button}
-    Click element                           xpath=${add_listing_button}
-    Wait until page contains element        id=${new_listing_name}   10
-    Wait until element is visible           id=${new_listing_name}   10
+    A user traverses to the add listing page    ${content_dropdown_directory_css}   ${directory_first_category_riviera}  ${directory_second_category_riviera} 
+    A user inputs directory data
+
+A user creates a classifieds
+    A user selects a region
+    A user opens the cms content dropdown
+    A user traverses to the add listing page  ${content_dropdown_classifieds_css}  ${classifieds_first_category_riviera}   ${classifieds_second_category_riviera}       
+
+A user inputs directory data
+   [Arguments]   
     Input Text                              id=${new_listing_name}   &{DIRECTORYLISTING}[name]
     Execute javascript   document.querySelector('${content_box1}').innerText='&{DIRECTORYLISTING}[content1]'
     Execute javascript   document.querySelector('${content_box2}').innterText='&{DIRECTORYLISTING}[content2]'
     Click button                            css=${slug_button}
     Click button                            css=${save_button}
 
-
-A user creates a classifieds
-    A user opens the cms content dropdown
-    Clink Link                              css=${content_dropdown_classifieds_option_css_locator}
+A user traverses to the add listing page
+   [Arguments]        ${content_dropdown_selection_css}   ${first_category_locator_xpath}    ${second_category_locator_xpath} 
+    Click Link                              css=${content_dropdown_selection_css}
     Wait until spinner is finished for "60" seconds
+    Wait until page contains element        xpath=${first_category_locator_xpath}   10
 
+    Wait until element is visible           xpath=${second_category_locator_xpath}   10
+    Click element                           xpath=${second_category_locator_xpath} 
+    Wait until spinner is finished for "60" seconds
+    Wait until page contains element        xpath=${add_listing_button}
+    Click element                           xpath=${add_listing_button}
+    Wait until page contains element        id=${new_listing_name}   10
+    Wait until element is visible           id=${new_listing_name}   10
 
-A user opens the cms content dropdown
+A user selects a region
     Click Link                              link=${region_dropdown}
     Click Link                              link=French Riviera
+
+A user opens the cms content dropdown
     Wait until spinner is finished for "60" seconds
     Click Link                              xpath=${content_dropdown}
 
@@ -76,10 +85,6 @@ A user opens a regional location config page
     Wait until spinner is finished for "60" seconds
     Wait until element is visible           css=${barcelona_element_css}
     Click Link                              css=${barcelona_element_css}
-
-
-
-
 
 
 regional location configs should not change

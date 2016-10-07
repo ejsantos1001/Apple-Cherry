@@ -34,7 +34,12 @@ Properties account integration
 
 Creating a directory via cms
     GIVEN a user is logged in the cms
-    WHEN a user creates a directory
+    WHEN a user creates a directory 
+
+Creating a classifieds via cms
+    [Tags]   wip
+    GIVEN a user is logged in the cms
+    WHEN a user creates a classifieds
 
 Regional Location configs did not change
     GIVEN a user logs in the cms
