@@ -48,14 +48,33 @@ A user creates a classifieds
     A user selects a region
     A user opens the cms content dropdown
     A user traverses to the add listing page  ${content_dropdown_classifieds_css}  ${classifieds_first_category_riviera}   ${classifieds_second_category_riviera}       
-   A user inputs classifieds data
+    A user inputs classifieds data   &{CLASSIFIEDSLISTING}[name]    &{CLASSIFIEDSLISTING}[content]
 
+A user inputs classifieds data
+   [Arguments]   ${classifieds_listing_name}   ${content}      
+   Wait until page contains element       id=${classifieds_listing_name_id}  10 
+   Wait until element is visible          id=${classifieds_listing_name_id}  10 
+   Input Text          			  id=${classifieds_listing_name_id}  ${classifieds_listing_name}
+   Execute Javascript  			  document.querySelector('${classifieds_main_content_css}').innerText='${content}'
+   Click button        			  css=${classifieds_slug_button_css}
+   Click button             	          css=${classifieds_save_button_css}
+
+The classifieds listing is created 
+   Wait until page contains element              css=${classifieds_url_css}
+   Wait until element is visible     	         css=${classifieds_url_css}
+   ${classifieds_link}=  			 Get element attribute    css=${classifieds_url_css}@href   
+   Go to 					 ${classifieds_link}  
+   Location should be 				 ${classifieds_link}
+  	
 
 A user inputs directory data
    [Arguments]  ${listing_name}   ${content1}   ${content2}   
+    Wait until page contains element        id=${new_listing_name}   10
+    Wait until element is visible           id=${new_listing_name}   10
     Input Text                              id=${new_listing_name}  ${listing_name}   
-    Execute javascript   document.querySelector('${content_box1}').innerText='${content1}'
-    Execute javascript   document.querySelector('${content_box2}').innterText='${content2}'
+    Click element                           xpath=${add_listing_button}
+    Execute javascript   		    document.querySelector('${content_box1}').innerText='${content1}'
+    Execute javascript     	            document.querySelector('${content_box2}').innterText='${content2}'
     Click button                            css=${slug_button}
     Click button                            css=${save_button}
 
@@ -70,8 +89,6 @@ A user traverses to the add listing page
     Wait until spinner is finished for "60" seconds
     Wait until page contains element        xpath=${add_listing_button}
     Click element                           xpath=${add_listing_button}
-    Wait until page contains element        id=${new_listing_name}   10
-    Wait until element is visible           id=${new_listing_name}   10
 
 A user selects a region
     Click Link                              link=${region_dropdown}

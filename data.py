@@ -21,6 +21,12 @@ DICT__directorylisting = {
 		'content2' : fake.text()
 }
 
+DICT__classifiedslisting = {
+       'name' : fake.name(),
+	   'content': fake.text()
+}
+
+
 DICT__discussiontopic = {
 		'title' : fake.name(),
 		'content' : fake	.text()

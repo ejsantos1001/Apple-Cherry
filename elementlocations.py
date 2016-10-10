@@ -72,8 +72,12 @@ content_dropdown_classifieds_css = '#ai_menu > ul:nth-child(1) > li.dropdown.ope
 classifieds_first_category_riviera='//*[@id="children-of-0"]/li[1]/a/span[2]'
 classifieds_second_category_riviera='//*[@id="children-of-1"]/li[1]/a/span[3]'
 classifieds_add_listing_button_css='#detail-listings-tab > div.fill-height > table > thead > tr > th:nth-child(6) > span > button'
-classifieds_listing_name_css='#name'
+classifieds_listing_name_id='name'
+classifieds_main_content_css='#listing_html_editor > div.note-editor.panel.panel-default > div.note-editing-area > div.note-editable.panel-body'
+classifieds_slug_button_css='#listing-detail-form > div:nth-child(2) > div > div.input-group > span.input-group-btn > button'
 classifieds_save_button_css='#ai-content > div > div:nth-child(1) > div > div > div > div.panel-body > div > div > div.col-xs-3.fill-height.left-pane > div.panel.panel-default.fill-height > div.panel-body.scrollable > center > button'
+classifieds_url_css='#ai-content > div > div:nth-child(1) > div > div > div > div.panel-body > div > div > div.col-xs-3.fill-height.left-pane > div.panel.panel-default.fill-height > div.panel-body.scrollable > div:nth-child(2) > small:nth-child(3) > a'
+
 #discusions index
 see_more_listings_button_discussions_css_selector = '#btn-see-more-discussion'
 eleventh_listing_discussion_index_xpath_selector = '//*[@id="recentListings"]/div[11]/div'

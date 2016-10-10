@@ -1,6 +1,6 @@
 *** Settings ***
 Resource          resource.robot
-Test Teardown     Close Browser
+#Test Teardown     Close Browser
 
 
 
@@ -40,6 +40,8 @@ Creating a classifieds via cms
     [Tags]   wip
     GIVEN a user is logged in the cms
     WHEN a user creates a classifieds
+    THEN the classifieds listing is created
+
 
 Regional Location configs did not change
     GIVEN a user logs in the cms
