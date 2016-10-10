@@ -77,7 +77,9 @@ classifieds_main_content_css='#listing_html_editor > div.note-editor.panel.panel
 classifieds_slug_button_css='#listing-detail-form > div:nth-child(2) > div > div.input-group > span.input-group-btn > button'
 classifieds_save_button_css='#ai-content > div > div:nth-child(1) > div > div > div > div.panel-body > div > div > div.col-xs-3.fill-height.left-pane > div.panel.panel-default.fill-height > div.panel-body.scrollable > center > button'
 classifieds_url_css='#ai-content > div > div:nth-child(1) > div > div > div > div.panel-body > div > div > div.col-xs-3.fill-height.left-pane > div.panel.panel-default.fill-height > div.panel-body.scrollable > div:nth-child(2) > small:nth-child(3) > a'
-
+#classifieds details page in the front end
+fe_classifieds_listing_name_css='#item-name'
+fe_classifieds_content_css='#tab-description > div > div > p'
 #discusions index
 see_more_listings_button_discussions_css_selector = '#btn-see-more-discussion'
 eleventh_listing_discussion_index_xpath_selector = '//*[@id="recentListings"]/div[11]/div'

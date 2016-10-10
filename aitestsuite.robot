@@ -39,8 +39,7 @@ Creating a directory via cms
 Creating a classifieds via cms
     [Tags]   wip
     GIVEN a user is logged in the cms
-    WHEN a user creates a classifieds
-    THEN the classifieds listing is created
+    THEN a user is able to create a classifieds listing
 
 
 Regional Location configs did not change

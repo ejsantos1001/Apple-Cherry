@@ -43,12 +43,15 @@ A user creates a directory
     A user opens the cms content dropdown
     A user traverses to the add listing page    ${content_dropdown_directory_css}   ${directory_first_category_riviera}  ${directory_second_category_riviera} 
     A user inputs directory data  &{DIRECTORYLISTING}[name]   &{DIRECTORYLISTING}[content1]   &{DIRECTORYLISTING}[content2] 
+    
 
-A user creates a classifieds
+A user is able to create a classifieds listing 
     A user selects a region
     A user opens the cms content dropdown
     A user traverses to the add listing page  ${content_dropdown_classifieds_css}  ${classifieds_first_category_riviera}   ${classifieds_second_category_riviera}       
     A user inputs classifieds data   &{CLASSIFIEDSLISTING}[name]    &{CLASSIFIEDSLISTING}[content]
+    A user is able to create a classifieds listing with   &{CLASSIFIEDSLISTING}[name]    &{CLASSIFIEDSLISTING}[content]
+ 
 
 A user inputs classifieds data
    [Arguments]   ${classifieds_listing_name}   ${content}      
@@ -59,13 +62,17 @@ A user inputs classifieds data
    Click button        			  css=${classifieds_slug_button_css}
    Click button             	          css=${classifieds_save_button_css}
 
-The classifieds listing is created 
+A user is able to create a classifieds listing with
+   [Arguments]  ${listing_name}   ${content}  
    Wait until page contains element              css=${classifieds_url_css}
    Wait until element is visible     	         css=${classifieds_url_css}
    ${classifieds_link}=  			 Get element attribute    css=${classifieds_url_css}@href   
    Go to 					 ${classifieds_link}  
    Location should be 				 ${classifieds_link}
-  	
+   Execute javascript  			         document.querySelector('${fe_classifieds_listing_name_css}').innerText='${listing_name}'	
+   Execute javascript				 document.querySelector('${fe_classifieds_content_css}').innerText='${content}'
+   Ads should be visible
+   
 
 A user inputs directory data
    [Arguments]  ${listing_name}   ${content1}   ${content2}   
@@ -202,7 +209,7 @@ the content sponsor widget is visible
     Wait until page contains element        id=${content_sponsor_widget_locator_id}
 
 
-ads should be visible
+Ads should be visible
     Wait until page contains element  id=${ad_728by90_container_locator_id}
     Wait until page contains element  id=${ad_300by250_container_locator_id}
     Wait until page contains element  id=${ad_160by600_containter_locator_id}
