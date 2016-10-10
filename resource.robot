@@ -62,7 +62,7 @@ A user traverses to the add listing page
     Click Link                              css=${content_dropdown_selection_css}
     Wait until spinner is finished for "60" seconds
     Wait until page contains element        xpath=${first_category_locator_xpath}   10
-
+    Click element 			    xpath=${first_category_locator_xpath} 	
     Wait until element is visible           xpath=${second_category_locator_xpath}   10
     Click element                           xpath=${second_category_locator_xpath} 
     Wait until spinner is finished for "60" seconds
