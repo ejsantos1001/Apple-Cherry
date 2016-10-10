@@ -42,18 +42,20 @@ A user creates a directory
     A user selects a region
     A user opens the cms content dropdown
     A user traverses to the add listing page    ${content_dropdown_directory_css}   ${directory_first_category_riviera}  ${directory_second_category_riviera} 
-    A user inputs directory data
+    A user inputs directory data  &{DIRECTORYLISTING}[name]   &{DIRECTORYLISTING}[content1]   &{DIRECTORYLISTING}[content2] 
 
 A user creates a classifieds
     A user selects a region
     A user opens the cms content dropdown
     A user traverses to the add listing page  ${content_dropdown_classifieds_css}  ${classifieds_first_category_riviera}   ${classifieds_second_category_riviera}       
+   A user inputs classifieds data
+
 
 A user inputs directory data
-   [Arguments]   
-    Input Text                              id=${new_listing_name}   &{DIRECTORYLISTING}[name]
-    Execute javascript   document.querySelector('${content_box1}').innerText='&{DIRECTORYLISTING}[content1]'
-    Execute javascript   document.querySelector('${content_box2}').innterText='&{DIRECTORYLISTING}[content2]'
+   [Arguments]  ${listing_name}   ${content1}   ${content2}   
+    Input Text                              id=${new_listing_name}  ${listing_name}   
+    Execute javascript   document.querySelector('${content_box1}').innerText='${content1}'
+    Execute javascript   document.querySelector('${content_box2}').innterText='${content2}'
     Click button                            css=${slug_button}
     Click button                            css=${save_button}
 
