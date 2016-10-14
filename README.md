@@ -12,12 +12,9 @@ After evaluating different tools, it is found that  robot-framework plus python 
 ## Installation
 
   1. Install python 2
-  2. Install pip
-  https://pip.pypa.io/en/stable/installing/
-  3. Install robot framework
-  - pip install robotframework
-  4. Install libraries
-  - ex. pip install selenium2library
+  2. Install pip    (https://pip.pypa.io/en/stable/installing/)
+  3. Install robot framework  (pip install robotframework)
+  4. Install librarie (ex. pip install selenium2library)
   5. Install browser drivers
 
 ## Files
