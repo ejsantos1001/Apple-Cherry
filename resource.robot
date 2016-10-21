@@ -79,7 +79,6 @@ A user inputs directory data
     Wait until page contains element        id=${new_listing_name}   10
     Wait until element is visible           id=${new_listing_name}   10
     Input Text                              id=${new_listing_name}  ${listing_name}   
-    Click element                           xpath=${add_listing_button}
     Execute javascript   		    document.querySelector('${content_box1}').innerText='${content1}'
     Execute javascript     	            document.querySelector('${content_box2}').innterText='${content2}'
     Click button                            css=${slug_button}
