@@ -1,6 +1,6 @@
 *** Settings ***
 Resource          resource.robot
-#Test Teardown     Close Browser
+Test Teardown     Close Browser
 
 
 
@@ -37,12 +37,11 @@ Creating a directory via cms
     WHEN a user creates a directory 
 
 Creating a classifieds via cms
-    [Tags]   wip
     GIVEN a user is logged in the cms
     THEN a user is able to create a classifieds listing
 
-
 Regional Location configs did not change
+    [tags]    repair
     GIVEN a user logs in the cms
     AND a user opens a regional location config page
     THEN regional location configs should not change

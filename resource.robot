@@ -97,6 +97,7 @@ A user traverses to the add listing page
     Click element                           xpath=${add_listing_button}
 
 A user selects a region
+    Wait until spinner is finished for "60" seconds
     Click Link                              link=${region_dropdown}
     Click Link                              link=French Riviera
 
@@ -105,6 +106,7 @@ A user opens the cms content dropdown
     Click Link                              xpath=${content_dropdown}
 
 A user opens a regional location config page
+    Wait until spinner is finished for "60" seconds
     Click Link                              xpath=${configurtion_dropdown_button}
     Click Link                              xpath=${configuration_dropdown_location_managment}
     Wait until spinner is finished for "60" seconds
