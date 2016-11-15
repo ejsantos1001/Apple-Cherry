@@ -11,7 +11,11 @@ baseurl = 'https://stg.angloinfo.com'
 
 cmsbaseurl = 'https://stgcms.angloinfo.com'
 
+robotsurl = baseurl + '/robots.txt'
 
+robotstxt_script = """User-agent: *
+Disallow: /
+"""
 
 
 

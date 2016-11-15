@@ -101,4 +101,5 @@ ad_728by90_container_locator_id= "google_ads_iframe_/31457341/riviera_728x90_0__
 ad_300by250_container_locator_id="google_ads_iframe_/31457341/riviera_160x600_0__container__"
 ad_160by600_containter_locator_id="google_ads_iframe_/31457341/riviera_300x250_0"
 
-
+#robot.txt 
+robots_script_display_element_location = 'body > pre'

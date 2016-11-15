@@ -51,3 +51,7 @@ Presence of Content Sponsor and 3 google ads
     WHEN a user opens the "classifieds index" page
     THEN the content sponsor widget is visible
     AND ads should be visible
+Ensure correct robots.txt in staging
+    [tags]  new
+    WHEN navigating to the robots.txt file 
+    THEN robots.txt script should be correct

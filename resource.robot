@@ -233,3 +233,10 @@ A user clicks see more listings
 the eleventh listing should display
 
     Wait until element is visible    xpath=${eleventh_listing_discussion_index_xpath_selector}
+
+navigating to the robots.txt file
+    Open Browser  ${ROBOTSURL}   ${BROWSER}  
+robots.txt script should be correct
+    ${value}    Execute Javascript   var value=document.querySelector('${robots_script_display_element_location}').innerText; return value;
+    Should be equal  ${value}  ${robotstxt_script}  
+
