@@ -21,5 +21,4 @@ After evaluating different tools, it is found that  robot-framework plus python 
 
 - aitestsuite.robot         - contains testcases using keywords
 - resource.robot      - contains keyword abstractions and libraries
-- data.py        - python module, used to supply data variables and configuration variables
-- elementlocations.py -  python module, used to supply  element location data
+- data.py        -  used to supply data variables and configuration variables robot, : python variables and datastructures
