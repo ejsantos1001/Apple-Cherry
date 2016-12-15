@@ -1,6 +1,5 @@
 ** Settings ***
 Variables         data.py
-Variables         elementlocations.py
 Library           Selenium2Library
 Library           ExtendedRequestsLibrary
 Library           HttpLibrary.HTTP
