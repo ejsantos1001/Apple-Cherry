@@ -33,6 +33,7 @@ Properties account integration
     THEN the user data is picked up by the property site
 
 Creating a directory via cms
+    [tags]   repair
     GIVEN a user is logged in the cms
     WHEN a user creates a directory 
 
@@ -41,7 +42,6 @@ Creating a classifieds via cms
     THEN a user is able to create a classifieds listing
 
 Regional Location configs did not change
-    [tags]    repair
     GIVEN a user logs in the cms
     AND a user opens a regional location config page
     THEN regional location configs should not change

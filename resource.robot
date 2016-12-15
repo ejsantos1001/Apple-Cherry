@@ -93,8 +93,8 @@ A user traverses to the add listing page
     Wait until element is visible           xpath=${second_category_locator_xpath}   10
     Click element                           xpath=${second_category_locator_xpath} 
     Wait until spinner is finished for "60" seconds
-    Wait until page contains element        xpath=${add_listing_button}
-    Click element                           xpath=${add_listing_button}
+    Wait until page contains element        css=${add_listing_button_css} 
+    Click element                           css=${add_listing_button_css}
 
 A user selects a region
     Wait until spinner is finished for "60" seconds
